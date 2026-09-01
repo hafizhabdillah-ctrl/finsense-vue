@@ -29,20 +29,51 @@ const unwrapRoute = (route, name = 'unknown') => {
   return resolved;
 };
 
+// CORS Configuration
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or Postman)
+    if (!origin) return callback(null, true);
+    
+    const allowedOrigins = [
+      'http://localhost:5173',
+      'http://localhost:3000',
+      'http://localhost:3001',
+      'http://127.0.0.1:5173',
+      process.env.FRONTEND_URL,
+    ];
+    
+    if (allowedOrigins.includes(origin) || process.env.NODE_ENV === 'development') {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS not allowed'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  optionsSuccessStatus: 200,
+};
+
+// Ganti konfigurasi cors lama dengan ini:
 app.use(
   cors({
-    origin: '*',
+    origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+    credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-  }),
+  })
 );
 
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use((req, res, next) => {
   console.log(`[Express] ${req.method} ${req.url}`);
   next();
 });
+
+// Routes
 app.use('/api/auth', unwrapRoute(authRoutes, 'authRoutes'));
 app.use('/api/umkm', unwrapRoute(umkmRoutes, 'umkmRoutes'));
 app.use('/api/transactions', unwrapRoute(transactionRoutes, 'transactionRoutes'));
@@ -54,6 +85,21 @@ app.use('/api/debts', unwrapRoute(debtRoutes, 'debtRoutes'));
 app.use('/api', unwrapRoute(voiceRoutes, 'voiceRoutes'));
 app.use('/api/ai', unwrapRoute(aiRoutes, 'aiRoutes'));
 
-app.get('/api/health', (req, res) => res.json({ status: 'OK' }));
+// Health check endpoint
+app.get('/api/health', (req, res) => res.json({ status: 'OK', timestamp: new Date() }));
+
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ error: 'Endpoint not found', path: req.url });
+});
+
+// Error handler middleware
+app.use((err, req, res, next) => {
+  console.error('[Error]', err);
+  res.status(err.status || 500).json({
+    error: err.message || 'Internal Server Error',
+    ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+  });
+});
 
 module.exports = app;
