@@ -55,10 +55,9 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 
-// Ganti konfigurasi cors lama dengan ini:
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+    origin: true, // Mengizinkan origin tempat request berasal (termasuk domain Vercel kamu)
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
