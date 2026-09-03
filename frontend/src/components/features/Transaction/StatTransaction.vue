@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
     <div class="relative flex-1 flex flex-col justify-between bg-white p-4 border rounded-md border-gray-300 shadow-sm">
       <h1 class="text-gray-500 font-bold text-sm uppercase">
         TOTAL PEMASUKAN BULAN INI
@@ -16,6 +16,15 @@
       <p class="flex items-center gap-2 text-2xl font-bold text-sky-950">
         <span>Rp.</span>
         <span>{{ totals.expense.toLocaleString() }}</span>
+      </p>
+    </div>
+    <div class="relative flex-1 flex flex-col justify-between bg-white p-4 border rounded-md border-gray-300 shadow-sm">
+      <h1 class="text-gray-500 font-bold text-sm uppercase">
+        TOTAL TRANSAKSI (BULAN INI)
+      </h1>
+      <p class="flex items-center gap-2 text-2xl font-bold text-sky-950">
+        <span>{{ totals.count }}</span>
+        <span class="relative text-sm top-1">Transaksi</span>
       </p>
     </div>
   </div>
@@ -41,11 +50,16 @@ const { transactions } = useTransactions({
 const totals = computed(() => {
   let income = 0;
   let expense = 0;
+  let count = 0;
   transactions.value.forEach((t) => {
+    const d = new Date(t.transaction_date);
+    const isThisMonth =
+      d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth();
+    if (isThisMonth) count += 1;
     if (t.type === 'income') income += t.amount;
     else expense += t.amount;
   });
-  return { income, expense };
+  return { income, expense, count };
 });
 </script>
 

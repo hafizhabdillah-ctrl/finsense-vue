@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-      <h1 class="text-2xl font-bold">Catatan keuangan</h1>
+      <div>
+        <h1 class="text-2xl font-bold">Catatan keuangan</h1>
+        <p class="text-gray-500 text-sm mt-1">{{ todayLabel }}</p>
+      </div>
       <button
         @click="router.push({ path: '/new', query: { type: 'transaction' } })"
         class="flex items-center gap-2 bg-sky-950 p-2 px-4 text-white rounded-lg font-semibold border hover:bg-white hover:text-sky-950 transition cursor-pointer"
@@ -62,6 +65,11 @@ import { PlusCircle, Calendar } from 'lucide-vue-next';
 const router = useRouter();
 const startDate = ref('');
 const endDate = ref('');
+const todayLabel = new Date().toLocaleDateString('id-ID', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
 
 const handleReset = () => {
   startDate.value = '';

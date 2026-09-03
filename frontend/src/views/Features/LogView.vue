@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
-      <h1 class="text-xl md:text-2xl font-bold">Log Barang</h1>
+      <div>
+        <h1 class="text-xl md:text-2xl font-bold">Log Barang</h1>
+        <p class="text-gray-500 text-sm mt-1">{{ todayLabel }}</p>
+      </div>
       <button
         @click="router.push({ path: '/new', query: { type: 'log' } })"
         class="flex items-center gap-2 cursor-pointer bg-sky-950 p-2 px-4 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all"
@@ -38,5 +41,10 @@ import { PlusCircle, Search } from 'lucide-vue-next';
 
 const router = useRouter();
 const searchTerm = ref('');
+const todayLabel = new Date().toLocaleDateString('id-ID', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
 </script>
 
