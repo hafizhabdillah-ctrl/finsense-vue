@@ -3,7 +3,7 @@
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
       <h1 class="text-2xl font-bold">POS Terminal</h1>
       <button
-        @click="router.push('/pos/new')"
+        @click="router.push({ path: '/new', query: { type: 'pos' } })"
         class="flex items-center gap-2 bg-sky-950 p-2 px-4 text-white font-semibold border cursor-pointer rounded-lg hover:bg-white hover:text-sky-950 transition"
       >
         <PlusCircle :size="16" />

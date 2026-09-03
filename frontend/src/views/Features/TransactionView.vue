@@ -3,7 +3,7 @@
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
       <h1 class="text-2xl font-bold">Catatan keuangan</h1>
       <button
-        @click="router.push('/transactions/new')"
+        @click="router.push({ path: '/new', query: { type: 'transaction' } })"
         class="flex items-center gap-2 bg-sky-950 p-2 px-4 text-white rounded-lg font-semibold border hover:bg-white hover:text-sky-950 transition cursor-pointer"
       >
         <PlusCircle :size="16" /> Tambah Transaksi

@@ -14,21 +14,15 @@ import DebtView from '@/views/Features/DebtView.vue';
 import LogView from '@/views/Features/LogView.vue';
 import NewView from '@/views/NewItem/NewView.vue';
 
-import NewStock from '@/components/features/Stock/NewStock.vue';
 import DetailStock from '@/components/features/Stock/DetailStock.vue';
 import EditStock from '@/components/features/Stock/EditStock.vue';
 
-import NewTransaction from '@/components/features/Transaction/NewTransaction.vue';
 import DetailTransaction from '@/components/features/Transaction/DetailTransaction.vue';
 import EditTransaction from '@/components/features/Transaction/EditTransaction.vue';
 
-import NewPos from '@/components/features/Pos/NewPos.vue';
-
-import NewDebt from '@/components/features/Debt/NewDebt.vue';
 import DetailDebt from '@/components/features/Debt/DetailDebt.vue';
 import EditDebt from '@/components/features/Debt/EditDebt.vue';
 
-import NewLog from '@/components/features/Log/NewLog.vue';
 import DetailLog from '@/components/features/Log/DetailLog.vue';
 import EditLog from '@/components/features/Log/EditLog.vue';
 
@@ -50,25 +44,20 @@ const routes = [
       { path: 'new', name: 'new-item', component: NewView },
 
       { path: 'transactions', name: 'transactions', component: TransactionView },
-      { path: 'transactions/new', name: 'new-transaction', component: NewTransaction },
       { path: 'transactions/:id', name: 'detail-transaction', component: DetailTransaction, props: true },
       { path: 'transactions/edit/:id', name: 'edit-transaction', component: EditTransaction, props: true },
 
       { path: 'stocks', name: 'stocks', component: StockView },
-      { path: 'stocks/new', name: 'new-stock', component: NewStock },
       { path: 'stocks/:id', name: 'detail-stock', component: DetailStock, props: true },
       { path: 'stocks/edit/:id', name: 'edit-stock', component: EditStock, props: true },
 
       { path: 'pos', name: 'pos', component: PosView },
-      { path: 'pos/new', name: 'new-pos', component: NewPos },
 
       { path: 'debts', name: 'debts', component: DebtView },
-      { path: 'debts/new', name: 'new-debt', component: NewDebt },
       { path: 'debts/:id', name: 'detail-debt', component: DetailDebt, props: true },
       { path: 'debts/edit/:id', name: 'edit-debt', component: EditDebt, props: true },
 
       { path: 'logs', name: 'logs', component: LogView },
-      { path: 'logs/new', name: 'new-log', component: NewLog },
       { path: 'logs/:id', name: 'detail-log', component: DetailLog, props: true },
       { path: 'logs/edit/:id', name: 'edit-log', component: EditLog, props: true },
     ]
