@@ -1,243 +1,78 @@
-# FinSense Vue - Quick Reference
+# FinSense Vue - Quick Reference & Cheat Sheet
 
 ## Quick Start Commands
 
-### Terminal 1: Start Backend
+### Backend Setup & Execution
 ```bash
-cd d:\DICODING2026\Capstone\finsense-project\vue\backend
-npm run dev
-# Server starts on http://localhost:5000
-```
-
-### Terminal 2: Start Frontend
-```bash
-cd d:\DICODING2026\Capstone\finsense-project\vue\frontend
-npm run dev
-# Frontend starts on http://localhost:5173
-```
-
-## Access the Application
-
-- **Frontend**: http://localhost:5173
-- **Backend API**: http://localhost:5000/api
-- **Health Check**: http://localhost:5000/api/health
-
-## Test Credentials (after registration)
-
-Create a test account during registration:
-- Email: test@example.com
-- Password: Test123456 (min 6 chars)
-- Full Name: Test User
-
-## Authentication Workflow
-
-### Step 1: Register
-1. Go to http://localhost:5173/register
-2. Fill in registration form
-3. Click "Register akun"
-4. You'll be redirected to login page
-
-### Step 2: Login
-1. Enter your credentials
-2. Click "Log in"
-3. If successful, redirected to dashboard
-4. Tokens stored in browser localStorage
-
-### Step 3: Access Protected Features
-- All menu items are now accessible
-- Tokens automatically sent with each request
-- Token automatically refreshes when needed
-
-### Step 4: Logout
-- Click user profile menu
-- Click logout
-- Redirected to login page
-
-## All Issues Fixed
-
-### ✅ Syntax Fixes
-- [x] Fixed 775+ className → class conversions across 51 Vue files
-- [x] React syntax completely removed from Vue components
-- [x] All CSS classes now properly rendered
-
-### ✅ Configuration
-- [x] Frontend .env configured with API URL
-- [x] Backend .env updated with all required variables
-- [x] CORS properly configured
-- [x] JWT tokens configured
-
-### ✅ Authentication
-- [x] User registration endpoint working
-- [x] User login endpoint working
-- [x] Token refresh mechanism implemented
-- [x] Logout with token revocation working
-- [x] Password reset endpoints ready
-- [x] Route guards properly protecting pages
-- [x] Auth state correctly managed
-
-### ✅ API Integration
-- [x] Frontend-backend communication configured
-- [x] Token automatically sent with requests
-- [x] Error handling for auth failures
-- [x] Token refresh on 401 responses
-- [x] Proper error messages to users
-
-### ✅ User Experience
-- [x] Loading states during auth operations
-- [x] Error messages displayed to users
-- [x] Automatic redirects after login/logout
-- [x] "Remember me" option in login
-- [x] Password visibility toggle
-- [x] Smooth navigation between pages
-
-## Browser Console Checks
-
-Open browser DevTools (F12) and check:
-
-1. **Network Tab**
-   - Login request should return access & refresh tokens
-   - Subsequent requests should include Authorization header
-   - 401 responses should trigger token refresh
-
-2. **Application Tab**
-   - localStorage should contain:
-     - `accessToken` (JWT format)
-     - `refreshToken` (UUID format)
-
-3. **Console Tab**
-   - No errors about className or undefined classes
-   - No auth-related errors
-   - Requests properly logged
-
-## Common Issues & Solutions
-
-### Issue: "API connection failed"
-**Solution**:
-```bash
-# Check backend is running
-curl http://localhost:5000/api/health
-
-# If not running:
 cd vue/backend
-npm run dev
+npm install
+npx prisma migrate dev   # Apply migrations if needed
+npm run dev              # Server runs on http://localhost:5000
 ```
 
-### Issue: "Login fails with 404"
-**Solution**:
-- Verify backend is running
-- Check API_URL in frontend .env.local
-- Ensure `.env` variables are set in backend
-
-### Issue: "Styles not loading"
-**Solution**:
-- All Vue files have been fixed (className → class)
-- Clear browser cache (Ctrl+Shift+Del)
-- Restart frontend dev server
-
-### Issue: "Token errors"
-**Solution**:
-- Clear localStorage: `localStorage.clear()`
-- Logout and login again
-- Check JWT_SECRET in backend .env
-
-### Issue: "CORS errors"
-**Solution**:
-```
-Backend .env:
-FRONTEND_URL=http://localhost:5173
-```
-
-## Database Schema Quick Reference
-
-### Users
-- id (UUID)
-- email (unique)
-- password_hash (bcrypt)
-- full_name
-- created_at
-- is_verified
-- reset_token (for password reset)
-
-### RefreshTokens
-- id (UUID)
-- token (unique)
-- user_id (foreign key)
-- expiresAt (7 days from creation)
-- revoked (boolean)
-
-### Other Tables
-- UmkmProfile
-- TransactionCategory
-- Transaction
-- TransactionItem
-- Product
-- StockLog
-- Debt
-- AiChatSession
-
-All tables are linked to User via user_id foreign key.
-
-## Development Tips
-
-### Debug Auth Issues
-1. Check browser localStorage for tokens
-2. Inspect network requests in DevTools
-3. Check backend console for error messages
-4. Verify .env files are properly configured
-
-### Test API Endpoints
-Use Postman or curl:
+### Frontend Setup & Execution
 ```bash
-# Register
-curl -X POST http://localhost:5000/api/auth/register \
-  -H "Content-Type: application/json" \
-  -d '{"email":"test@test.com","password":"Test123","full_name":"Test"}'
-
-# Login
-curl -X POST http://localhost:5000/api/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"email":"test@test.com","password":"Test123"}'
-
-# Get Profile (replace TOKEN with actual token)
-curl -X GET http://localhost:5000/api/auth/profile \
-  -H "Authorization: Bearer TOKEN"
+cd vue/frontend
+npm install
+npm run dev              # Frontend runs on http://localhost:5173
 ```
-
-## File Changes Summary
-
-### Frontend Files Modified
-- 51 Vue components (className → class)
-- `.env.local` (created)
-- `.env.development` (created)
-- `src/router/index.js` (auth guards improved)
-- `src/stores/auth.js` (error handling added)
-- `src/services/api.js` (error handling improved)
-
-### Backend Files Modified
-- `src/app.js` (CORS & error handling improved)
-- `.env` (configuration updated)
-
-## Performance Monitoring
-
-### Frontend
-- Open DevTools Network tab
-- Check request/response times
-- Monitor for failed requests
-
-### Backend
-- Check console logs
-- Monitor database queries
-- Watch for error messages
-
-## Next Steps
-
-1. ✅ Test complete authentication flow
-2. ✅ Verify all features work
-3. ✅ Deploy to production (if needed)
-4. Consider: Email verification, 2FA, API rate limiting
 
 ---
 
-**Status**: 🟢 PRODUCTION READY
-**Last Check**: 2026-01-09
-**All Issues**: ✅ RESOLVED
+## Test Credentials & Testing Workflow
+
+### Standard Test User
+- **Email**: `test@example.com`
+- **Password**: `Test123456`
+- **Full Name**: `Test User`
+
+### Testing Steps
+1. **Register**: Navigate to `http://localhost:5173/register` and submit details.
+2. **Login**: Authenticate at `http://localhost:5173/login`. Check `localStorage` for `accessToken` and `refreshToken`.
+3. **Protected Routes**: Try accessing `/stocks` or `/transactions` directly while logged out to verify route protection.
+4. **Token Refresh**: Let access token expire; verify auto-refresh via Network tab.
+5. **Logout**: Click profile menu → Logout. Confirm tokens are cleared from `localStorage`.
+
+---
+
+## Troubleshooting Guide
+
+| Issue / Error | Cause | Solution |
+| :--- | :--- | :--- |
+| **API Connection Failed** | Backend server is down or wrong port | Ensure backend is running (`npm run dev`). Test via `curl http://localhost:5000/api/health`. |
+| **CORS Error in Console** | Origin mismatch | Verify `FRONTEND_URL=http://localhost:5173` is set in `vue/backend/.env`. |
+| **Login 404 / Route Error** | Incorrect API Base URL | Check `vue/frontend/.env.local` for `VITE_API_URL=http://localhost:5000/api`. |
+| **Unstyled / Broken UI** | Leftover `className` syntax or cached CSS | Ensure components use `class=`. Hard refresh browser (`Ctrl+Shift+R`). |
+| **401 Unauthorized / Token Error** | Expired or corrupted JWT secret | Clear browser storage: `localStorage.clear()` in Console, then log in again. |
+
+---
+
+## Database Schema Overview (Prisma / Supabase)
+
+- **`Users`**: `id` (UUID), `email` (unique), `password_hash`, `full_name`, `created_at`.
+- **`RefreshTokens`**: `id`, `token` (unique), `user_id` (FK), `expiresAt`, `revoked`.
+- **`Transactions`**: `id`, `user_id` (FK), `amount`, `type`, `category_id`.
+- **`Products` & `StockLogs`**: Inventory tracking linked to `user_id`.
+- **`Debts` & `UmkmProfile`**: Financial logs and business metadata linked to `user_id`.
+
+---
+
+## cURL Testing Commands
+
+### 1. Register User
+```bash
+curl -X POST http://localhost:5000/api/auth/register   -H "Content-Type: application/json"   -d '{"email":"test@example.com","password":"Test123456","full_name":"Test User"}'
+```
+
+### 2. Login User
+```bash
+curl -X POST http://localhost:5000/api/auth/login   -H "Content-Type: application/json"   -d '{"email":"test@example.com","password":"Test123456"}'
+```
+
+### 3. Fetch Protected Profile
+```bash
+curl -X GET http://localhost:5000/api/auth/profile   -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+```
+
+---
+**Status**: 🟢 **PRODUCTION READY**
