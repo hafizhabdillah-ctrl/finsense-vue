@@ -4,7 +4,10 @@
       <div class="flex flex-col items-center">
         <!-- Logo and Name -->
         <div class="flex flex-row items-center mb-4">
-          <img :src="logo" alt="logo" class="h-10 w-10 sm:h-12 sm:w-12 mx-2 object-contain" />
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 sm:h-12 sm:w-12 mx-2 object-contain">
+            <path d="M2 3h4.2L12 13l5.8-10H22L12 21 2 3Z" fill="#41B883"/>
+            <path d="M6.2 3H9.5L12 7.2 14.5 3H17.8L12 13 6.2 3Z" fill="#35495E"/>
+          </svg>
           <h1 class="text-2xl sm:text-3xl font-bold text-sky-950">
             Fin<span class="text-orange-400">Sense</span>
           </h1>
@@ -27,6 +30,5 @@
 
 <script setup>
 import LoginInput from '@/components/features/Auth/LoginInput.vue';
-import logo from '@images/logo.png';
 </script>
 

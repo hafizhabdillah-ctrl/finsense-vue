@@ -3,7 +3,10 @@
     <!-- Header -->
     <div class="flex items-center justify-between px-4 py-4">
       <div class="flex items-center">
-        <img :src="logo" alt="logo" class="h-10 w-10 md:h-14 md:w-14 object-contain" />
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 md:h-14 md:w-14 object-contain">
+          <path d="M2 3h4.2L12 13l5.8-10H22L12 21 2 3Z" fill="#41B883"/>
+          <path d="M6.2 3H9.5L12 7.2 14.5 3H17.8L12 13 6.2 3Z" fill="#35495E"/>
+        </svg>
         <h1 class="font-bold py-1 px-2 text-2xl md:text-3xl">
           Fin<span class="text-orange-300">Sense</span>
         </h1>
@@ -70,7 +73,6 @@
 <script setup>
 import { RouterLink, useRouter } from 'vue-router';
 import { useAuthStore } from '@/stores/auth';
-import logo from '@images/logo.png';
 import {
   LayoutDashboard,
   Receipt,
