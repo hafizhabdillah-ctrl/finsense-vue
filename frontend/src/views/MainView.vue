@@ -1,20 +1,23 @@
 <template>
-  <div class="min-h-screen bg-[#071426] font-poppins text-slate-100">
-    <nav class="sticky top-0 z-50 border-b border-white/10 bg-[#071426]/90 backdrop-blur-xl">
+  <div class="min-h-screen bg-black font-poppins text-slate-100">
+    <nav class="sticky top-0 z-50 border-b border-white/10 bg-black/90 backdrop-blur-xl">
       <div class="mx-auto max-w-7xl px-5 sm:px-8">
         <div class="flex h-20 items-center justify-between">
           <button @click="scrollToSection('produk')" class="flex items-center text-xl font-bold tracking-tight md:text-2xl cursor-pointer">
-            <img :src="logo" alt="FinSense" class="h-9 w-auto object-contain" />
-            Fin<span class="text-cyan-300">Sense</span>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="h-9 w-auto object-contain">
+              <path d="M2 3h4.2L12 13l5.8-10H22L12 21 2 3Z" fill="#41B883"/>
+              <path d="M6.2 3H9.5L12 7.2 14.5 3H17.8L12 13 6.2 3Z" fill="#35495E"/>
+            </svg>
+            Fin<span class="text-orange-500">Sense</span>
           </button>
           <div class="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
-            <button @click="scrollToSection('produk')" class="transition-colors hover:text-cyan-300 cursor-pointer">Produk</button>
-            <button @click="scrollToSection('fitur')" class="transition-colors hover:text-cyan-300 cursor-pointer">Fitur</button>
-            <button @click="scrollToSection('wawasan')" class="transition-colors hover:text-cyan-300 cursor-pointer">Wawasan AI</button>
+            <button @click="scrollToSection('produk')" class="transition-colors hover:text-orange-500 cursor-pointer">Produk</button>
+            <button @click="scrollToSection('fitur')" class="transition-colors hover:text-orange-500 cursor-pointer">Fitur</button>
+            <button @click="scrollToSection('wawasan')" class="transition-colors hover:text-orange-500 cursor-pointer">Wawasan AI</button>
           </div>
           <div class="flex items-center gap-2 text-sm font-semibold sm:gap-4">
             <button @click="router.push('/login')" class="px-2 py-2 text-slate-300 transition-colors hover:text-white sm:px-3 cursor-pointer">Masuk</button>
-            <button @click="router.push('/register')" class="rounded-lg bg-cyan-300 px-4 py-2.5 text-[#071426] shadow-[0_8px_24px_rgba(103,232,249,0.18)] transition hover:bg-cyan-200 sm:px-5 cursor-pointer">Daftar</button>
+            <button @click="router.push('/register')" class="rounded-lg bg-orange-500 px-4 py-2.5 text-black shadow-[0_8px_24px_rgba(249,115,22,0.18)] transition hover:bg-orange-400 sm:px-5 cursor-pointer">Daftar</button>
           </div>
         </div>
         <div class="flex justify-center gap-5 border-t border-white/10 py-3 text-xs font-medium text-slate-300 md:hidden">
@@ -26,15 +29,15 @@
     </nav>
 
     <main>
-      <section id="produk" class="relative overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_80%_20%,rgba(14,165,233,0.18),transparent_32%),linear-gradient(135deg,#071426_0%,#0b2743_55%,#0b3954_100%)] px-5 py-16 sm:px-8 md:py-24 lg:py-28">
+      <section id="produk" class="relative overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_80%_20%,rgba(249,115,22,0.18),transparent_32%),linear-gradient(135deg,#000000_0%,#171717_55%,#0a0a0a_100%)] px-5 py-16 sm:px-8 md:py-24 lg:py-28">
         <div class="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div class="animate-fade-in-up text-center lg:text-left">
-            <p class="mb-5 text-xs font-bold uppercase tracking-[0.25em] text-cyan-300">Platform bisnis UMKM</p>
-            <h1 class="max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-7xl">Cerdas mengelola bisnis, <span class="text-cyan-300">siap bertumbuh.</span></h1>
+            <p class="mb-5 text-xs font-bold uppercase tracking-[0.25em] text-orange-500">Platform bisnis UMKM</p>
+            <h1 class="max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-7xl">Cerdas mengelola bisnis, <span class="text-orange-500">siap bertumbuh.</span></h1>
             <p class="mt-6 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">Kendalikan penjualan, stok, dan keuangan dengan wawasan AI yang bekerja untuk membantu Anda mengambil keputusan lebih cepat.</p>
             <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-              <button @click="router.push('/register')" class="rounded-lg bg-cyan-300 px-6 py-3 font-bold text-[#071426] shadow-lg transition hover:-translate-y-0.5 hover:bg-cyan-200 cursor-pointer">Mulai Sekarang <span aria-hidden="true">-&gt;</span></button>
-              <button @click="scrollToSection('fitur')" class="rounded-lg border border-white/20 px-6 py-3 font-semibold text-white transition hover:border-cyan-300 hover:text-cyan-300 cursor-pointer">Lihat Fitur</button>
+              <button @click="router.push('/register')" class="rounded-lg bg-orange-500 px-6 py-3 font-bold text-black shadow-lg transition hover:-translate-y-0.5 hover:bg-orange-400 cursor-pointer">Mulai Sekarang <span aria-hidden="true">-&gt;</span></button>
+              <button @click="scrollToSection('fitur')" class="rounded-lg border border-white/20 px-6 py-3 font-semibold text-white transition hover:border-orange-500 hover:text-orange-500 cursor-pointer">Lihat Fitur</button>
             </div>
             <div class="mt-10 flex justify-center gap-8 text-left text-xs text-slate-400 lg:justify-start">
               <span><strong class="block text-lg text-white">5+</strong>modul bisnis</span>
@@ -43,7 +46,7 @@
             </div>
           </div>
           <div class="relative animate-fade-in-up-delay">
-            <div class="absolute -inset-5 rounded-3xl bg-cyan-300/10 blur-3xl" />
+            <div class="absolute -inset-5 rounded-3xl bg-orange-500/10 blur-3xl" />
             <div class="relative rounded-2xl border border-white/20 bg-white/10 p-2 shadow-2xl backdrop-blur-sm sm:p-3">
               <img :src="hero" alt="Tampilan platform FinSense" class="w-full rounded-xl object-cover" />
             </div>
@@ -51,15 +54,15 @@
         </div>
       </section>
 
-      <section id="fitur" class="bg-[#0a1d33] px-5 py-20 sm:px-8 md:py-24">
+      <section id="fitur" class="bg-neutral-900 px-5 py-20 sm:px-8 md:py-24">
         <div class="mx-auto max-w-7xl">
           <div class="mb-12 flex flex-col justify-between gap-4 md:flex-row md:items-end">
-            <div><p class="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-cyan-300">Satu ekosistem</p><h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Semua yang bisnis Anda butuhkan.</h2></div>
+            <div><p class="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-orange-500">Satu ekosistem</p><h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Semua yang bisnis Anda butuhkan.</h2></div>
             <p class="max-w-sm text-sm leading-7 text-slate-400">Dari transaksi pertama hingga keputusan strategis, FinSense membantu Anda tetap memegang kendali.</p>
           </div>
           <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            <article v-for="(feature, index) in features" :key="feature.title" :class="['group flex flex-col border border-white/10 bg-[#102b47] p-5 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/60 hover:bg-[#143858]', index === 0 ? 'lg:col-span-2' : '']">
-              <div class="mb-5 flex items-center justify-between"><span class="text-xs font-bold text-cyan-300">0{{ index + 1 }}</span><span class="h-px w-10 bg-cyan-300/30" /></div>
+            <article v-for="(feature, index) in features" :key="feature.title" :class="['group flex flex-col border border-white/10 bg-neutral-800 p-5 transition duration-300 hover:-translate-y-1 hover:border-orange-500/60 hover:bg-neutral-700', index === 0 ? 'lg:col-span-2' : '']">
+              <div class="mb-5 flex items-center justify-between"><span class="text-xs font-bold text-orange-500">0{{ index + 1 }}</span><span class="h-px w-10 bg-orange-500/30" /></div>
               <h3 class="text-lg font-bold text-white">{{ feature.title }}</h3>
               <img :src="feature.image" :alt="feature.alt" class="my-6 h-28 w-full object-contain mix-blend-screen transition duration-300 group-hover:scale-105" />
               <p class="mt-auto text-sm leading-6 text-slate-400">{{ feature.text }}</p>
@@ -68,9 +71,9 @@
         </div>
       </section>
 
-      <section id="wawasan" class="bg-[#071426] px-5 py-20 sm:px-8 md:py-28">
+      <section id="wawasan" class="bg-black px-5 py-20 sm:px-8 md:py-28">
         <div class="mx-auto max-w-7xl">
-          <div class="mb-16 max-w-2xl"><p class="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-cyan-300">Bekerja lebih cerdas</p><h2 class="text-3xl font-bold tracking-tight text-white sm:text-5xl">AI yang memahami ritme bisnis Anda.</h2></div>
+          <div class="mb-16 max-w-2xl"><p class="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-orange-500">Bekerja lebih cerdas</p><h2 class="text-3xl font-bold tracking-tight text-white sm:text-5xl">AI yang memahami ritme bisnis Anda.</h2></div>
           <div class="grid items-center gap-10 border-t border-white/10 py-12 md:grid-cols-2 md:gap-20">
             <div><h3 class="text-2xl font-bold text-white sm:text-3xl">Operasional lebih cerdas dengan suara</h3><p class="mt-5 leading-8 text-slate-400">Percepat alur kerja dengan kasir pengenal suara. Tambah barang, cek harga, atau cetak struk seketika tanpa mengganggu ritme pelayanan.</p></div>
             <img :src="aicashier" alt="Kasir dengan dukungan AI suara" class="w-full border border-white/15 object-cover shadow-2xl" />
@@ -83,15 +86,14 @@
       </section>
     </main>
 
-    <footer class="border-t border-white/10 bg-[#050f1e] px-5 py-7 text-center text-sm text-slate-400 sm:px-8">
-      <p><span class="font-bold text-white">Fin<span class="text-cyan-300">Sense</span></span> &copy; {{ currentYear }} - Coding Camp 2026</p>
+    <footer class="border-t border-white/10 bg-black px-5 py-7 text-center text-sm text-slate-400 sm:px-8">
+      <p><span class="font-bold text-white">Fin<span class="text-orange-500">Sense</span></span> &copy; {{ currentYear }} - Coding Camp 2026</p>
     </footer>
   </div>
 </template>
 
 <script setup>
 import { useRouter } from 'vue-router';
-import logo from '@images/logo.png';
 import hero from '@images/herosection.png';
 import dashboard from '@images/dashboard.png';
 import stock from '@images/stock.png';
@@ -116,4 +118,3 @@ const scrollToSection = (sectionId) => {
   document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
 };
 </script>
-
