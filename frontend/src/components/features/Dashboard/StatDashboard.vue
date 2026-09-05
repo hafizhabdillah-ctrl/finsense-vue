@@ -15,17 +15,9 @@
       </div>
       <div class="flex-1 bg-white p-4 border rounded-md border-gray-300 shadow-sm">
         <h2 class="text-gray-500 text-sm font-semibold">
-          TOTAL TRANSAKSI HARI INI
+          TRANSAKSI HARI INI
         </h2>
         <p class="text-2xl font-bold text-sky-950">{{ todayCount }}</p>
-      </div>
-      <div class="flex-1 bg-white p-4 border rounded-md border-gray-300 shadow-sm">
-        <h2 class="text-gray-500 text-sm font-semibold">
-          RATA-RATA ORDER HARI INI
-        </h2>
-        <p class="text-2xl font-bold text-sky-950">
-          Rp {{ Math.round(averageOrder).toLocaleString() }}
-        </p>
       </div>
     </div>
 

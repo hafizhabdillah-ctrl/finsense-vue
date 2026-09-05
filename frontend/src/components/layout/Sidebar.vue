@@ -8,7 +8,7 @@
           <path d="M6.2 3H9.5L12 7.2 14.5 3H17.8L12 13 6.2 3Z" fill="#35495E"/>
         </svg>
         <h1 class="font-bold py-1 px-2 text-2xl md:text-3xl">
-          Fin<span class="text-orange-300">Sense</span>
+          Fin<span class="text-orange-400">Sense</span>
         </h1>
       </div>
       <button
