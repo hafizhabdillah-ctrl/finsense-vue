@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col md:flex-row gap-4 bg-white p-4 w-full md:w-3/4 border border-gray-200 rounded-lg shadow-sm">
+  <div class="flex flex-col md:flex-row gap-4 bg-white p-4 w-full md:w-3/4">
     <!-- Grafik Pemasukan -->
     <div class="flex-1 text-center">
       <p class="text-xs font-bold text-gray-500 mb-2 uppercase">
@@ -118,8 +118,6 @@ const emptyData = {
 };
 
 const chartOptions = {
-  responsive: true,
-  maintainAspectRatio: false,
   plugins: {
     legend: {
       display: false,

@@ -1,7 +1,7 @@
 <template>
-  <div v-if="loading" class="p-6 text-gray-500">Memuat detail...</div>
-  <div v-else-if="!transaction" class="p-6 text-gray-500">Transaksi tidak ditemukan</div>
-  <div v-else class="p-4 max-w-2xl">
+  <div v-if="loading" class="p-6">Memuat detail...</div>
+  <div v-else-if="!transaction" class="p-6">Transaksi tidak ditemukan</div>
+  <div v-else>
     <h1 class="text-2xl font-bold text-gray-800">Detail Transaksi</h1>
     <p class="mb-2 mt-2 text-sm text-gray-500">
       ID Transaksi: {{ transaction.id }}
@@ -16,20 +16,18 @@
       <p class="font-semibold text-gray-600">Nominal:</p>
       <p>Rp {{ transaction.amount?.toLocaleString() }}</p>
       <p class="font-semibold text-gray-600">Tipe:</p>
-      <p :class="transaction.type === 'income' ? 'text-green-700 font-bold' : 'text-red-700 font-bold'">
-        {{ transaction.type === 'income' ? 'Masuk' : 'Keluar' }}
-      </p>
+      <p>{{ transaction.type === 'income' ? 'Masuk' : 'Keluar' }}</p>
     </div>
     <div class="flex gap-4 mt-4">
       <button
         @click="router.push(`/transactions/edit/${id}`)"
-        class="flex items-center gap-2 cursor-pointer bg-sky-950 p-2 px-4 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all"
+        class="flex items-center gap-2 cursor-pointer bg-sky-950 p-2 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all"
       >
         Edit
       </button>
       <button
         @click="onDeleteHandler"
-        class="flex items-center gap-2 cursor-pointer bg-red-900 p-2 px-4 text-white font-semibold border rounded-lg hover:bg-white hover:text-red-900 transition-all"
+        class="flex items-center gap-2 cursor-pointer bg-red-900 p-2 text-white font-semibold border rounded-lg hover:bg-white hover:text-red-900 transition-all"
       >
         Hapus
       </button>

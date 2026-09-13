@@ -1,7 +1,5 @@
 <template>
-  <div v-if="loading" class="flex gap-4 p-4 text-gray-500">
-    Memuat statistik...
-  </div>
+  <div v-if="loading" class="flex gap-4">Memuat statistik...</div>
   <div v-else class="flex flex-col w-full gap-4">
     <!-- statistik -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -40,7 +38,7 @@
         </span>
       </p>
       <p v-if="predictionMessage" class="text-xs text-yellow-600">{{ predictionMessage }}</p>
-      <p class="text-xs text-gray-500">{{ revenuePrediction.prediction_date }}</p>
+      <p class="text-xs">{{ revenuePrediction.prediction_date }}</p>
     </div>
   </div>
 </template>
@@ -51,10 +49,8 @@ import { useDashboardData } from '@/composables/useDashboardData';
 const {
   todayIncome,
   todayCount,
-  averageOrder,
   loading,
   revenuePrediction,
   predictionMessage,
 } = useDashboardData();
 </script>
-

@@ -6,11 +6,12 @@
         v-for="tab in tabs"
         :key="tab.value"
         @click="type = tab.value"
+        type="button"
         :class="[
-          'py-2 px-4 font-semibold border-b-2 transition-all cursor-pointer -mb-px',
+          'py-2 px-4 font-semibold rounded-t-md border border-b-0 transition-all cursor-pointer',
           type === tab.value
-            ? 'border-sky-950 text-sky-950'
-            : 'border-transparent text-gray-500 hover:text-sky-950',
+            ? 'bg-sky-950 text-white border-sky-950'
+            : 'bg-white text-sky-950 border-gray-300 hover:bg-sky-950 hover:text-white',
         ]"
       >
         {{ tab.label }}
@@ -149,7 +150,7 @@
     <!-- POS -->
     <form v-else-if="type === 'pos'" class="max-w-2xl" @submit.prevent="onSubmitPos">
       <div class="px-2 mt-4 relative flex flex-col gap-2">
-        <span class="font-bold">Nama Barang:</span>
+        <span class="font-bold">Produk:</span>
         <select
           v-model="posForm.product_id"
           class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
@@ -162,7 +163,7 @@
         </select>
       </div>
       <div class="px-2 mt-4 relative flex flex-col gap-2">
-        <span class="font-bold">Jumlah Barang:</span>
+        <span class="font-bold">Jumlah:</span>
         <input
           type="number"
           placeholder="Masukan jumlah barang..."
@@ -177,7 +178,7 @@
         :disabled="submittingPos"
         class="flex items-center py-2 px-4 mx-2 mt-4 gap-2 cursor-pointer bg-sky-950 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all disabled:opacity-50"
       >
-        {{ submittingPos ? 'Menyimpan...' : 'Konfirmasi' }}
+        {{ submittingPos ? 'Memproses...' : 'Konfirmasi' }}
       </button>
     </form>
 
@@ -308,6 +309,7 @@ import { useTransactions } from '@/composables/useTransactions';
 import { useDebts } from '@/composables/useDebts';
 import { useStockLogs } from '@/composables/useStockLogs';
 import { getProducts } from '@/services/productService';
+import api from '@/services/api';
 
 const router = useRouter();
 const route = useRoute();
@@ -335,14 +337,16 @@ onMounted(async () => {
   }
 });
 
-const categories = ref([
-  { id: 1, name: 'Penjualan' },
-  { id: 2, name: 'Restok' },
-  { id: 3, name: 'Operasional' },
-  { id: 4, name: 'Gaji Karyawan' },
-  { id: 5, name: 'Bayar Hutang' },
-  { id: 6, name: 'Hutang Pelanggan' },
-]);
+// Kategori diambil dari backend (bukan hardcode) agar id-nya selalu sesuai database
+const categories = ref([]);
+onMounted(async () => {
+  try {
+    const res = await api.get('/categories');
+    categories.value = res.data || [];
+  } catch (err) {
+    Swal.fire('Error', 'Gagal memuat daftar kategori', 'error');
+  }
+});
 
 // ---------------- Produk ----------------
 const { addProduct } = useProducts();
@@ -379,7 +383,7 @@ const onSubmitProduct = async () => {
 const { addTransaction } = useTransactions();
 const submittingTransaction = ref(false);
 const transactionForm = reactive({
-  date: new Date().toISOString().split('T')[0],
+  date: '',
   category_id: '',
   description: '',
   amount: '',

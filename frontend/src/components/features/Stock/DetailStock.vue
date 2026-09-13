@@ -1,6 +1,6 @@
 <template>
-  <div v-if="loading" class="p-6 text-gray-500">Memuat detail...</div>
-  <div v-else-if="!product" class="p-6 text-gray-500">Produk tidak ditemukan</div>
+  <div v-if="loading" class="p-6">Memuat detail...</div>
+  <div v-else-if="!product" class="p-6">Produk tidak ditemukan</div>
   <div v-else>
     <h1 class="text-2xl font-bold text-gray-800">Detail Produk</h1>
     <p class="mb-2 mt-2 text-sm text-gray-500">ID Produk: {{ product.id }}</p>
@@ -23,28 +23,28 @@
         {{ product.stock <= product.min_stock ? 'Menipis' : 'Aman' }}
       </span>
     </div>
-    <div class="flex flex-wrap gap-4 mt-4">
+    <div class="flex gap-4 mt-4">
       <button
         @click="router.push(`/stocks/edit/${id}`)"
-        class="flex items-center gap-2 cursor-pointer bg-sky-950 p-2 px-4 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all"
+        class="flex items-center gap-2 cursor-pointer bg-sky-950 p-2 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all"
       >
         Edit
       </button>
       <button
         @click="onAdjustStock('in')"
-        class="flex items-center gap-2 cursor-pointer bg-green-700 p-2 px-4 text-white font-semibold border rounded-lg hover:bg-white hover:text-green-700 transition-all"
+        class="flex items-center gap-2 cursor-pointer bg-green-700 p-2 text-white font-semibold border rounded-lg hover:bg-white hover:text-green-700 transition-all"
       >
         Tambah Stok
       </button>
       <button
         @click="onAdjustStock('out')"
-        class="flex items-center gap-2 cursor-pointer bg-yellow-600 p-2 px-4 text-white font-semibold border rounded-lg hover:bg-white hover:text-yellow-600 transition-all"
+        class="flex items-center gap-2 cursor-pointer bg-yellow-600 p-2 text-white font-semibold border rounded-lg hover:bg-white hover:text-yellow-600 transition-all"
       >
         Kurangi Stok
       </button>
       <button
         @click="onDeleteHandler"
-        class="flex items-center gap-2 cursor-pointer bg-red-900 p-2 px-4 text-white font-semibold border rounded-lg hover:bg-white hover:text-red-900 transition-all"
+        class="flex items-center gap-2 cursor-pointer bg-red-900 p-2 text-white font-semibold border rounded-lg hover:bg-white hover:text-red-900 transition-all"
       >
         Hapus
       </button>

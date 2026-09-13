@@ -73,6 +73,7 @@
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { getTransactionById, updateTransaction } from '@/services/transactionService';
+import api from '@/services/api';
 import Swal from 'sweetalert2';
 
 const props = defineProps({
@@ -94,17 +95,13 @@ const formData = ref({
   type: 'income',
 });
 
-const categories = ref([
-  { id: 1, name: 'Penjualan' },
-  { id: 2, name: 'Restok' },
-  { id: 3, name: 'Operasional' },
-  { id: 4, name: 'Gaji Karyawan' },
-  { id: 5, name: 'Bayar Hutang' },
-  { id: 6, name: 'Hutang Pelanggan' },
-]);
+const categories = ref([]);
 
 onMounted(async () => {
   try {
+    // Kategori diambil dari backend agar id-nya selalu sesuai database
+    const catRes = await api.get('/categories');
+    categories.value = catRes.data || [];
     const response = await getTransactionById(props.id);
     const tx = response.data;
     formData.value = {

@@ -1,6 +1,7 @@
 <template>
-  <div class="w-full p-4 bg-white border border-gray-300 rounded-md shadow-sm overflow-x-auto">
-    <div class="min-w-[300px]">
+  <div class="w-full h-full p-4 bg-white border border-gray-300 rounded-md shadow-sm overflow-x-auto">
+    <p v-if="loading" class="text-gray-500">Memuat grafik...</p>
+    <div v-else class="min-w-[300px]">
       <Line :data="data" :options="options" />
     </div>
   </div>
@@ -31,7 +32,7 @@ ChartJS.register(
   Legend,
 );
 
-const { chartData } = useDashboardData();
+const { chartData, loading } = useDashboardData();
 
 const data = computed(() => ({
   labels: chartData.value.dates,
@@ -56,4 +57,3 @@ const options = {
   },
 };
 </script>
-

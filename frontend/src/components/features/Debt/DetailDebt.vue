@@ -1,7 +1,7 @@
 <template>
-  <div v-if="loading" class="p-6 text-gray-500">Memuat detail...</div>
-  <div v-else-if="!debt" class="p-6 text-gray-500">Hutang tidak ditemukan</div>
-  <div v-else class="p-4 max-w-2xl">
+  <div v-if="loading" class="p-6">Memuat detail...</div>
+  <div v-else-if="!debt" class="p-6">Hutang tidak ditemukan</div>
+  <div v-else>
     <h1 class="text-2xl font-bold text-gray-800">Detail Hutang</h1>
     <p class="mb-2 mt-2 text-sm text-gray-500">ID Hutang: {{ debt.id }}</p>
 
@@ -19,7 +19,7 @@
       <p class="font-semibold text-gray-600">Jatuh Tempo:</p>
       <p>{{ new Date(debt.due_date).toLocaleDateString('id-ID') }}</p>
       <p class="font-semibold text-gray-600">Status:</p>
-      <p class="font-medium">
+      <p>
         {{
           debt.status === 'pending'
             ? 'Belum Lunas'
@@ -36,20 +36,20 @@
     <div class="flex gap-4 mt-4 flex-wrap">
       <button
         @click="router.push(`/debts/edit/${id}`)"
-        class="flex items-center gap-2 cursor-pointer bg-sky-950 p-2 px-4 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all"
+        class="flex items-center gap-2 cursor-pointer bg-sky-950 p-2 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all"
       >
         Edit
       </button>
       <button
         @click="onDeleteHandler"
-        class="flex items-center gap-2 cursor-pointer bg-red-900 p-2 px-4 text-white font-semibold border rounded-lg hover:bg-white hover:text-red-900 transition-all"
+        class="flex items-center gap-2 cursor-pointer bg-red-900 p-2 text-white font-semibold border rounded-lg hover:bg-white hover:text-red-900 transition-all"
       >
         Hapus
       </button>
       <button
         v-if="debt.status !== 'paid'"
         @click="showPaymentModal = true"
-        class="flex items-center gap-2 cursor-pointer bg-green-700 p-2 px-4 text-white font-semibold border rounded-lg hover:bg-white hover:text-green-700 transition-all"
+        class="flex items-center gap-2 cursor-pointer bg-green-700 p-2 text-white font-semibold border rounded-lg hover:bg-white hover:text-green-700 transition-all"
       >
         Bayar Hutang
       </button>

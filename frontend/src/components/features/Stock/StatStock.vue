@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loading" class="flex w-full gap-4 mt-4 text-gray-500">
+  <div v-if="loading" class="flex w-full gap-4 mt-4">
     Memuat statistik...
   </div>
   <div v-else class="grid grid-cols-1 sm:grid-cols-2 border-gray-300 gap-4 mt-4">

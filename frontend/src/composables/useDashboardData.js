@@ -1,20 +1,20 @@
 import { ref, onMounted } from 'vue';
 import { getTransactions } from '@/services/transactionService';
-import { getProducts } from '@/services/productService';
 import api from '@/services/api';
 
+// ============================================================
+// COMPOSABLE UTAMA DASHBOARD
+// - Statistik hari ini (pemasukan & jumlah transaksi)
+// - Data grafik penjualan 7 hari terakhir
+// - Prediksi pemasukan besok (AI)
+// ============================================================
 export function useDashboardData() {
   const todayIncome = ref(0);
   const todayCount = ref(0);
   const averageOrder = ref(0);
-  const lowStockProducts = ref([]);
-  const bestSellers = ref([]);
   const loading = ref(true);
   const chartData = ref({ dates: [], amounts: [] });
-  const aiPredictions = ref([]);
-  const loadingAi = ref(false);
   const revenuePrediction = ref(null);
-  const topProductsPrediction = ref([]);
   const predictionMessage = ref('');
 
   const fetchData = async () => {
@@ -54,63 +54,30 @@ export function useDashboardData() {
       const amounts = sortedDates.map((d) => dailyMap.get(d));
       chartData.value = { dates: sortedDates, amounts };
 
-      // 3. Semua produk
-      const productsRes = await getProducts();
-      const allProducts = productsRes.data || [];
-
-      // 4. Low stock lokal
-      const lowStock = allProducts.filter((p) => p.stock <= p.min_stock);
-      lowStockProducts.value = lowStock.slice(0, 10);
-
-      // 5. Best sellers
-      try {
-        const realTopRes = await api.get('/ai/real-top-products');
-        bestSellers.value = (realTopRes.data?.top_products || []).slice(0, 5);
-      } catch (err) {
-        console.warn('Gagal ambil real top products, fallback ke stock logs');
-      }
-
-      // 6. Prediksi Revenue AI
+      // 3. Prediksi Revenue AI (dengan validasi kewajaran)
       try {
         const revRes = await api.get('/ai/predict-revenue');
         if (revRes.data?.available === false) {
           predictionMessage.value = revRes.data.message || 'Data transaksi belum cukup';
           revenuePrediction.value = null;
         } else {
-          let rawValue = revRes.data?.predicted_revenue;
-          let displayValue;
-          if (rawValue === null || rawValue === undefined || rawValue <= 0) {
-            displayValue = '......';
-          } else {
-            displayValue = rawValue;
-          }
+          const rawValue = revRes.data?.predicted_revenue;
+          // Jika null/undefined atau nilai tidak masuk akal (<=0) -> tampilkan placeholder
+          const displayValue =
+            rawValue === null || rawValue === undefined || rawValue <= 0
+              ? '......'
+              : rawValue;
           revenuePrediction.value = {
             predicted_revenue: displayValue,
-            prediction_date: revRes.data?.prediction_date || new Date().toISOString().split('T')[0],
+            prediction_date:
+              revRes.data?.prediction_date || new Date().toISOString().split('T')[0],
           };
           predictionMessage.value = revRes.data?.note || '';
         }
       } catch (err) {
+        console.error('Revenue prediction error:', err);
         revenuePrediction.value = null;
         predictionMessage.value = 'Gagal memuat prediksi pendapatan';
-      }
-
-      // 7. Prediksi Top Products AI
-      try {
-        const topRes = await api.get('/ai/predict-top-products');
-        if (topRes.data?.available === false) {
-          const realTopRes = await api.get('/ai/real-top-products');
-          topProductsPrediction.value = realTopRes.data?.top_products || [];
-        } else {
-          topProductsPrediction.value = topRes.data?.top_products || [];
-        }
-      } catch (err) {
-        try {
-          const realTopRes = await api.get('/ai/real-top-products');
-          topProductsPrediction.value = realTopRes.data?.top_products || [];
-        } catch (e) {
-          topProductsPrediction.value = [];
-        }
       }
     } catch (err) {
       console.error('Dashboard error:', err);
@@ -127,15 +94,10 @@ export function useDashboardData() {
     todayIncome,
     todayCount,
     averageOrder,
-    lowStockProducts,
-    bestSellers,
     chartData,
     loading,
-    aiPredictions,
-    loadingAi,
     revenuePrediction,
-    topProductsPrediction,
     predictionMessage,
-    refetch: fetchData
+    refetch: fetchData,
   };
 }

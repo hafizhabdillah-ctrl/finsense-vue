@@ -1,14 +1,14 @@
 <template>
-  <div v-if="loading" class="p-6 text-gray-500">Memuat detail...</div>
-  <div v-else-if="!log" class="p-6 text-gray-500">Log tidak ditemukan</div>
-  <div v-else class="p-4 max-w-2xl">
+  <div v-if="loading" class="p-6">Memuat detail...</div>
+  <div v-else-if="!log" class="p-6">Log tidak ditemukan</div>
+  <div v-else>
     <h1 class="text-2xl font-bold text-gray-800">Detail Log</h1>
     <p class="mb-2 mt-2 text-sm text-gray-500">ID Log: {{ log.id }}</p>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-2 border-t pt-4 mt-2">
       <p class="font-semibold text-gray-600">Waktu:</p>
       <p>{{ new Date(log.created_at).toLocaleString() }}</p>
       <p class="font-semibold text-gray-600">Nama Produk:</p>
-      <p class="font-medium">{{ log.product?.name }}</p>
+      <p>{{ log.product?.name }}</p>
       <p class="font-semibold text-gray-600">SKU:</p>
       <p>{{ log.product?.sku }}</p>
       <p class="font-semibold text-gray-600">Tipe:</p>
@@ -22,7 +22,7 @@
         }}
       </p>
       <p class="font-semibold text-gray-600">Jumlah:</p>
-      <p class="font-bold">{{ log.quantity }}</p>
+      <p>{{ log.quantity }}</p>
       <p class="font-semibold text-gray-600">Oleh:</p>
       <p>{{ log.operator }}</p>
       <p class="font-semibold text-gray-600">Status:</p>
@@ -33,13 +33,13 @@
     <div class="flex gap-4 mt-4">
       <button
         @click="router.push(`/logs/edit/${id}`)"
-        class="flex items-center gap-2 cursor-pointer bg-sky-950 p-2 px-4 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all"
+        class="flex items-center gap-2 cursor-pointer bg-sky-950 p-2 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all"
       >
         Edit
       </button>
       <button
         @click="onDeleteHandler"
-        class="flex items-center gap-2 cursor-pointer bg-red-900 p-2 px-4 text-white font-semibold border rounded-lg hover:bg-white hover:text-red-900 transition-all"
+        class="flex items-center gap-2 cursor-pointer bg-red-900 p-2 text-white font-semibold border rounded-lg hover:bg-white hover:text-red-900 transition-all"
       >
         Hapus
       </button>
