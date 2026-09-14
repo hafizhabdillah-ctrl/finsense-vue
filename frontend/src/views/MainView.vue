@@ -1,117 +1,281 @@
 <template>
-  <div class="min-h-screen bg-black font-poppins text-slate-100">
-    <nav class="sticky top-0 z-50 border-b border-white/10 bg-black/90 backdrop-blur-xl">
+  <div class="min-h-screen bg-white font-poppins text-slate-900">
+    <nav class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-xl">
       <div class="mx-auto max-w-7xl px-5 sm:px-8">
         <div class="flex h-20 items-center justify-between">
-          <button @click="scrollToSection('produk')" class="flex items-center text-xl font-bold tracking-tight md:text-2xl cursor-pointer">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="h-9 w-auto object-contain">
-              <path d="M2 3h4.2L12 13l5.8-10H22L12 21 2 3Z" fill="#41B883"/>
-              <path d="M6.2 3H9.5L12 7.2 14.5 3H17.8L12 13 6.2 3Z" fill="#35495E"/>
-            </svg>
+          <button @click="scrollToSection('hero')" class="flex items-center gap-2 text-xl font-bold tracking-tight md:text-2xl cursor-pointer">
+            <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-900">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"/>
+                <path d="M18.5 8.5 13 14l-3-3-4.5 4.5" stroke="#F97316"/>
+              </svg>
+            </div>
             Fin<span class="text-orange-500">Sense</span>
           </button>
-          <div class="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
-            <button @click="scrollToSection('produk')" class="transition-colors hover:text-orange-500 cursor-pointer">Produk</button>
+          <div class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
             <button @click="scrollToSection('fitur')" class="transition-colors hover:text-orange-500 cursor-pointer">Fitur</button>
-            <button @click="scrollToSection('wawasan')" class="transition-colors hover:text-orange-500 cursor-pointer">Wawasan AI</button>
+            <button @click="scrollToSection('cara-kerja')" class="transition-colors hover:text-orange-500 cursor-pointer">Cara Kerja</button>
+            <button @click="scrollToSection('faq')" class="transition-colors hover:text-orange-500 cursor-pointer">FAQ</button>
           </div>
           <div class="flex items-center gap-2 text-sm font-semibold sm:gap-4">
-            <button @click="router.push('/login')" class="px-2 py-2 text-slate-300 transition-colors hover:text-white sm:px-3 cursor-pointer">Masuk</button>
-            <button @click="router.push('/register')" class="rounded-lg bg-orange-500 px-4 py-2.5 text-black shadow-[0_8px_24px_rgba(249,115,22,0.18)] transition hover:bg-orange-400 sm:px-5 cursor-pointer">Daftar</button>
+            <button @click="router.push('/login')" class="px-2 py-2 text-slate-600 transition-colors hover:text-slate-900 sm:px-3 cursor-pointer">Masuk</button>
+            <button @click="router.push('/register')" class="rounded-lg bg-orange-500 px-4 py-2.5 text-white shadow-[0_8px_24px_rgba(249,115,22,0.25)] transition hover:bg-orange-600 sm:px-5 cursor-pointer">Daftar Sekarang</button>
           </div>
         </div>
-        <div class="flex justify-center gap-5 border-t border-white/10 py-3 text-xs font-medium text-slate-300 md:hidden">
-          <button @click="scrollToSection('produk')">Produk</button>
+        <div class="flex justify-center gap-5 border-t border-slate-200 py-3 text-xs font-medium text-slate-600 md:hidden">
           <button @click="scrollToSection('fitur')">Fitur</button>
-          <button @click="scrollToSection('wawasan')">Wawasan AI</button>
+          <button @click="scrollToSection('cara-kerja')">Cara Kerja</button>
+          <button @click="scrollToSection('faq')">FAQ</button>
         </div>
       </div>
     </nav>
 
     <main>
-      <section id="produk" class="relative overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_80%_20%,rgba(249,115,22,0.18),transparent_32%),linear-gradient(135deg,#000000_0%,#171717_55%,#0a0a0a_100%)] px-5 py-16 sm:px-8 md:py-24 lg:py-28">
-        <div class="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div class="animate-fade-in-up text-center lg:text-left">
-            <p class="mb-5 text-xs font-bold uppercase tracking-[0.25em] text-orange-500">Platform bisnis UMKM</p>
-            <h1 class="max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-7xl">Cerdas mengelola bisnis, <span class="text-orange-500">siap bertumbuh.</span></h1>
-            <p class="mt-6 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">Kendalikan penjualan, stok, dan keuangan dengan wawasan AI yang bekerja untuk membantu Anda mengambil keputusan lebih cepat.</p>
-            <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-              <button @click="router.push('/register')" class="rounded-lg bg-orange-500 px-6 py-3 font-bold text-black shadow-lg transition hover:-translate-y-0.5 hover:bg-orange-400 cursor-pointer">Mulai Sekarang <span aria-hidden="true">-&gt;</span></button>
-              <button @click="scrollToSection('fitur')" class="rounded-lg border border-white/20 px-6 py-3 font-semibold text-white transition hover:border-orange-500 hover:text-orange-500 cursor-pointer">Lihat Fitur</button>
-            </div>
-            <div class="mt-10 flex justify-center gap-8 text-left text-xs text-slate-400 lg:justify-start">
-              <span><strong class="block text-lg text-white">5+</strong>modul bisnis</span>
-              <span><strong class="block text-lg text-white">24/7</strong>dukungan AI</span>
-              <span><strong class="block text-lg text-white">1</strong>platform terpadu</span>
+      <!-- Hero -->
+      <section id="hero" class="relative overflow-hidden bg-gradient-to-b from-orange-50/60 via-white to-white px-5 py-16 sm:px-8 md:py-24 lg:py-28">
+        <div class="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+          <div class="text-center lg:text-left">
+            <h1 class="text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+              Catat penjualan cukup dengan <span class="text-orange-500">ngomong.</span>
+            </h1>
+            <p class="mx-auto mt-6 max-w-xl text-base leading-8 text-slate-600 sm:text-lg lg:mx-0">
+              FinSense mengurus kasir, stok, hutang pelanggan, dan laporan keuangan warung kamu dalam satu aplikasi tanpa ribet manual.
+            </p>
+            <div class="mt-8 flex justify-center lg:justify-start">
+              <button @click="router.push('/register')" class="rounded-lg bg-orange-500 px-7 py-3.5 font-bold text-white shadow-lg shadow-orange-500/25 transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer">
+                Daftar Sekarang
+              </button>
             </div>
           </div>
-          <div class="relative animate-fade-in-up-delay">
-            <div class="absolute -inset-5 rounded-3xl bg-orange-500/10 blur-3xl" />
-            <div class="relative rounded-2xl border border-white/20 bg-white/10 p-2 shadow-2xl backdrop-blur-sm sm:p-3">
-              <img :src="hero" alt="Tampilan platform FinSense" class="w-full rounded-xl object-cover" />
+          <div class="relative">
+            <div class="absolute -inset-6 rounded-3xl bg-orange-500/10 blur-3xl"></div>
+            <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl">
+              <div class="flex items-center gap-1.5 border-b border-slate-100 bg-slate-50 px-4 py-3">
+                <span class="h-2.5 w-2.5 rounded-full bg-red-400"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-green-400"></span>
+              </div>
+              <img :src="hero" alt="Tampilan kasir FinSense" class="w-full object-cover" />
+              <div class="absolute -bottom-4 left-4 flex items-center gap-2 rounded-xl rounded-bl-sm border border-slate-100 bg-white px-4 py-2.5 text-xs font-medium text-slate-700 shadow-lg">
+                <Mic class="h-3.5 w-3.5 text-orange-500" /> "Jual Mie Goreng 3 bungkus"
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="fitur" class="bg-neutral-900 px-5 py-20 sm:px-8 md:py-24">
+      <!-- Problems -->
+      <section id="masalah" class="bg-white px-5 py-20 sm:px-8 md:py-24">
         <div class="mx-auto max-w-7xl">
-          <div class="mb-12 flex flex-col justify-between gap-4 md:flex-row md:items-end">
-            <div><p class="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-orange-500">Satu ekosistem</p><h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Semua yang bisnis Anda butuhkan.</h2></div>
-            <p class="max-w-sm text-sm leading-7 text-slate-400">Dari transaksi pertama hingga keputusan strategis, FinSense membantu Anda tetap memegang kendali.</p>
+          <div class="mx-auto max-w-2xl text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Masalah yang tiap hari dialami pemilik warung</h2>
+            <p class="mt-4 text-base leading-7 text-slate-600">Banyak hal kecil di warung yang bikin pusing dari hari ke hari.</p>
           </div>
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            <article v-for="(feature, index) in features" :key="feature.title" :class="['group flex flex-col border border-white/10 bg-neutral-800 p-5 transition duration-300 hover:-translate-y-1 hover:border-orange-500/60 hover:bg-neutral-700', index === 0 ? 'lg:col-span-2' : '']">
-              <div class="mb-5 flex items-center justify-between"><span class="text-xs font-bold text-orange-500">0{{ index + 1 }}</span><span class="h-px w-10 bg-orange-500/30" /></div>
-              <h3 class="text-lg font-bold text-white">{{ feature.title }}</h3>
-              <img :src="feature.image" :alt="feature.alt" class="my-6 h-28 w-full object-contain mix-blend-screen transition duration-300 group-hover:scale-105" />
-              <p class="mt-auto text-sm leading-6 text-slate-400">{{ feature.text }}</p>
-            </article>
+          <div class="mt-14 grid gap-6 sm:grid-cols-3">
+            <div v-for="problem in problems" :key="problem.title" class="rounded-2xl border border-slate-200 bg-slate-50 p-7 transition hover:-translate-y-1 hover:shadow-lg">
+              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-orange-600">
+                <component :is="problem.icon" class="h-6 w-6" />
+              </div>
+              <h3 class="text-lg font-bold text-slate-900">{{ problem.title }}</h3>
+              <p class="mt-3 text-sm leading-6 text-slate-600">{{ problem.text }}</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="wawasan" class="bg-black px-5 py-20 sm:px-8 md:py-28">
+      <!-- Features -->
+      <section id="fitur" class="bg-slate-50 px-5 py-20 sm:px-8 md:py-24">
         <div class="mx-auto max-w-7xl">
-          <div class="mb-16 max-w-2xl"><p class="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-orange-500">Bekerja lebih cerdas</p><h2 class="text-3xl font-bold tracking-tight text-white sm:text-5xl">AI yang memahami ritme bisnis Anda.</h2></div>
-          <div class="grid items-center gap-10 border-t border-white/10 py-12 md:grid-cols-2 md:gap-20">
-            <div><h3 class="text-2xl font-bold text-white sm:text-3xl">Operasional lebih cerdas dengan suara</h3><p class="mt-5 leading-8 text-slate-400">Percepat alur kerja dengan kasir pengenal suara. Tambah barang, cek harga, atau cetak struk seketika tanpa mengganggu ritme pelayanan.</p></div>
-            <img :src="aicashier" alt="Kasir dengan dukungan AI suara" class="w-full border border-white/15 object-cover shadow-2xl" />
+          <div class="mx-auto max-w-2xl text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Satu aplikasi untuk semua urusan warung</h2>
+            <p class="mt-4 text-base leading-7 text-slate-600">Pilih yang paling dibutuhkan, mudah digunakan siapa saja, bahkan tanpa keahlian komputer.</p>
           </div>
-          <div class="grid items-center gap-10 border-t border-white/10 py-12 md:grid-cols-2 md:gap-20">
-            <img :src="chat" alt="Tampilan AI chat FinSense" class="w-full border border-white/15 object-cover shadow-2xl md:order-first" />
-            <div><h3 class="text-2xl font-bold text-white sm:text-3xl">Wawasan AI, kapan pun dibutuhkan</h3><p class="mt-5 leading-8 text-slate-400">Tanyakan apa saja tentang data bisnis Anda. AI Live membantu membaca pola, memberi solusi real-time, dan menyusun langkah strategis.</p></div>
+          <div class="mt-14 grid gap-6 lg:grid-cols-[1.1fr_1fr]">
+            <div class="relative overflow-hidden rounded-2xl bg-slate-900 p-8 text-white">
+              <span class="inline-block rounded-full bg-orange-500/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-orange-400">Penjualan Otomatis</span>
+              <h3 class="mt-4 text-2xl font-bold">POS Suara</h3>
+              <p class="mt-3 max-w-sm text-sm leading-6 text-slate-300">Cukup sebutkan nama barang dan jumlahnya. Transaksi langsung tercatat otomatis tanpa ketik satu pun.</p>
+              <div class="mt-6 overflow-hidden rounded-xl border border-white/10">
+                <img :src="aicashier" alt="POS Suara FinSense" class="w-full object-cover" />
+              </div>
+              <div class="mt-4 inline-flex items-center gap-2 rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white">
+                <Mic class="h-4 w-4" /> Mendengarkan...
+              </div>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div v-for="feature in features" :key="feature.title" class="rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:shadow-lg">
+                <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-orange-100 text-orange-600">
+                  <component :is="feature.icon" class="h-5 w-5" />
+                </div>
+                <h3 class="text-base font-bold text-slate-900">{{ feature.title }}</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-600">{{ feature.text }}</p>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Steps -->
+      <section id="cara-kerja" class="bg-white px-5 py-20 sm:px-8 md:py-24">
+        <div class="mx-auto max-w-7xl">
+          <div class="mx-auto max-w-2xl text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Mulai dalam 5 menit</h2>
+            <p class="mt-4 text-base leading-7 text-slate-600">Tanpa ribet, tanpa instalasi hardware, atau kursus rumit.</p>
+          </div>
+          <div class="mt-14 grid gap-8 text-left sm:grid-cols-3">
+            <div v-for="step in steps" :key="step.title">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-orange-500 text-lg font-bold text-white">{{ step.number }}</div>
+              <h3 class="mt-5 text-lg font-bold text-slate-900">{{ step.title }}</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">{{ step.text }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature highlight #1 -->
+      <section class="bg-slate-50 px-5 py-20 sm:px-8 md:py-24">
+        <div class="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
+          <div>
+            <span class="inline-block rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-orange-600">Kontrol Keuangan</span>
+            <h3 class="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl">Lihat untung rugi hari ini</h3>
+            <p class="mt-4 leading-7 text-slate-600">Pantau jumlah keuntungan, kerugian, dan grafik produk terlaris secara real-time dari HP atau laptop kamu kapan pun.</p>
+            <blockquote class="mt-6 border-l-4 border-orange-500 pl-4 text-sm italic text-slate-500">Sekarang saya bisa lihat untung rugi setiap hari lewat HP.</blockquote>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-2 shadow-xl">
+            <img :src="dashboard" alt="Dasbor keuangan FinSense" class="w-full rounded-xl object-cover" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature highlight #2 -->
+      <section class="bg-white px-5 py-20 sm:px-8 md:py-24">
+        <div class="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
+          <div class="rounded-2xl border border-slate-200 bg-white p-2 shadow-xl md:order-first">
+            <img :src="debt" alt="Catatan hutang pelanggan FinSense" class="w-full rounded-xl object-cover" />
+          </div>
+          <div>
+            <span class="inline-block rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-orange-600">Tutup Hutang</span>
+            <h3 class="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl">Tidak ada lagi hutang yang terlupa</h3>
+            <p class="mt-4 leading-7 text-slate-600">Rekap hutang pelanggan tercatat rapi lengkap dengan tanggal jatuh tempo, supaya arus kas warungmu tetap terjaga.</p>
+            <blockquote class="mt-6 border-l-4 border-orange-500 pl-4 text-sm italic text-slate-500">Sekarang saya bisa ingatkan pelanggan otomatis sebelum jatuh tempo.</blockquote>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="bg-slate-50 px-5 py-20 sm:px-8 md:py-24">
+        <div class="mx-auto max-w-3xl">
+          <div class="text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Pertanyaan yang sering ditanyakan</h2>
+            <p class="mt-4 text-base leading-7 text-slate-600">Segala hal yang perlu kamu ketahui seputar FinSense.</p>
+          </div>
+          <div class="mt-10 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
+            <div v-for="(faq, i) in faqs" :key="faq.question">
+              <button @click="openFaq = openFaq === i ? null : i" class="flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-sm font-semibold text-slate-900 cursor-pointer">
+                {{ faq.question }}
+                <ChevronDown class="h-4 w-4 shrink-0 text-slate-400 transition-transform" :class="{ 'rotate-180': openFaq === i }" />
+              </button>
+              <p v-if="openFaq === i" class="px-6 pb-5 text-sm leading-6 text-slate-600">{{ faq.answer }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="bg-slate-900 px-5 py-20 text-center sm:px-8 md:py-24">
+        <div class="mx-auto max-w-3xl">
+          <h2 class="text-3xl font-bold text-white sm:text-4xl">Rapikan pembukuan warung kamu mulai hari ini.</h2>
+          <p class="mt-4 text-base leading-7 text-slate-300">Bergabunglah dengan ribuan pemilik warung pintar di seluruh Indonesia yang hemat waktu dan untung lebih banyak.</p>
+          <button @click="router.push('/register')" class="mt-8 inline-block rounded-lg bg-orange-500 px-8 py-3.5 font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer">Mulai Gratis Sekarang</button>
+          <p class="mt-4 text-xs text-slate-400">Daftar dalam 1 menit &bull; Tidak butuh kartu kredit</p>
         </div>
       </section>
     </main>
 
-    <footer class="border-t border-white/10 bg-black px-5 py-7 text-center text-sm text-slate-400 sm:px-8">
-      <p><span class="font-bold text-white">Fin<span class="text-orange-500">Sense</span></span> &copy; {{ currentYear }} - Coding Camp 2026</p>
+    <footer class="bg-slate-950 px-5 py-14 text-slate-400 sm:px-8">
+      <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
+        <div>
+          <div class="flex items-center gap-2 text-xl font-bold tracking-tight text-white">
+            <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-900">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"/>
+                <path d="M18.5 8.5 13 14l-3-3-4.5 4.5" stroke="#F97316"/>
+              </svg>
+            </div>
+            Fin<span class="text-orange-500">Sense</span>
+          </div>
+          <p class="mt-3 max-w-xs text-sm leading-6">POS Kasir Suara untuk pemilik warung dan UMKM di Indonesia.</p>
+        </div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-white">Produk</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li>Kasir POS</li>
+            <li>Catatan Keuangan</li>
+            <li>Manajemen Stok</li>
+            <li>Catatan Hutang</li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-white">Dukungan</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li>Pusat Bantuan</li>
+            <li>Panduan Pengguna</li>
+            <li>Kontak WhatsApp</li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-white">Perusahaan</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li>Tentang Kami</li>
+            <li>Blog</li>
+            <li>Karir</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mx-auto mt-10 max-w-7xl border-t border-white/10 pt-6 text-center text-xs">
+        &copy; 2026 FinSense. Dibuat untuk pengusaha UMKM Indonesia.
+      </div>
     </footer>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { NotebookPen, Coins, PackageX, Wallet, Boxes, CreditCard, Lightbulb, Mic, ChevronDown } from 'lucide-vue-next';
 import hero from '@images/herosection.png';
 import dashboard from '@images/dashboard.png';
-import stock from '@images/stock.png';
-import cashier from '@images/cashier.png';
 import debt from '@images/debt.png';
-import log from '@images/log.png';
 import aicashier from '@images/aicashier.png';
-import chat from '@images/chat.png';
 
 const router = useRouter();
-const currentYear = new Date().getFullYear();
+const openFaq = ref(null);
+
+const problems = [
+  { icon: NotebookPen, title: 'Lupa catat penjualan', text: 'Transaksi kadang dicatat di buku dan sering hilang atau lupa dicatat sehingga rekap jadi tidak akurat.' },
+  { icon: Coins, title: 'Hutang pelanggan tercecer', text: 'Catatan hutang rusak atau hilang, tanpa bon pelanggan sering lupa berapa hutang yang harus dibayar.' },
+  { icon: PackageX, title: 'Stok habis tanpa sadar', text: 'Baru sadar barang kosong saat pembeli sudah menunggu, penjualan hilang begitu saja karena tidak tahu stok tersisa.' },
+];
 
 const features = [
-  { title: 'Dasbor Utama', image: dashboard, alt: 'Dashboard', text: 'Pantau kesehatan bisnis, tren pendapatan, dan metrik operasional harian dalam satu tampilan.' },
-  { title: 'Stok Barang', image: stock, alt: 'Stock', text: 'Dapatkan peringatan stok rendah dan kelola inventaris secara real-time tanpa tebakan.' },
-  { title: 'Kasir Otomatis', image: cashier, alt: 'Cashier', text: 'Proses transaksi lebih cepat, akurat, dan nyaman untuk setiap pelanggan.' },
-  { title: 'Pantau Hutang', image: debt, alt: 'Debt', text: 'Jaga arus kas tetap sehat dengan pelacakan faktur yang belum dibayar.' },
-  { title: 'Log Inventaris', image: log, alt: 'Log', text: 'Lacak barang masuk dan keluar dengan riwayat yang siap membantu audit.' },
+  { icon: Wallet, title: 'Catatan Keuangan', text: 'Pemasukan dan pengeluaran tercatat otomatis dan menunjukkan untung rugi tiap hari tanpa ribet hitung manual.' },
+  { icon: Boxes, title: 'Manajemen Stok', text: 'Stok berkurang otomatis setelah penjualan, kamu selalu tahu barang apa yang perlu direstok.' },
+  { icon: CreditCard, title: 'Hutang Pelanggan', text: 'Pantau siapa saja pelanggan yang berutang, catat pelunasan, dan kirim pengingat lewat WhatsApp otomatis.' },
+  { icon: Lightbulb, title: 'Rekomendasi Restok', text: 'Dapat rekomendasi otomatis kapan harus restok dan berapa banyak berdasarkan tren penjualan.' },
+];
+
+const steps = [
+  { number: '1', title: 'Daftar akun', text: 'Isi nama toko dan email, langsung bisa mulai kelola bisnis tanpa ribet.' },
+  { number: '2', title: 'Masukkan stok awal', text: 'Cukup masukkan barang yang kamu jual sekarang, tak perlu input rumit satu per satu.' },
+  { number: '3', title: 'Jualan seperti biasa', text: 'FinSense mencatat semuanya otomatis sesuai transaksi harian tokomu.' },
+];
+
+const faqs = [
+  { question: 'Apakah data penjualan saya aman?', answer: 'Ya. Semua data tersimpan di server terenkripsi dan otomatis dicadangkan setiap hari, jadi catatan penjualanmu tidak akan hilang.' },
+  { question: 'Bisa dipakai tanpa internet?', answer: 'FinSense butuh koneksi internet untuk mencatat transaksi secara real-time, tapi tetap ringan digunakan lewat HP dengan kuota minim.' },
+  { question: 'Perlu alat khusus?', answer: 'Tidak. Cukup gunakan HP atau laptop yang sudah kamu punya, tanpa perlu membeli mesin kasir atau alat tambahan.' },
+  { question: 'Apakah gratis selamanya?', answer: 'FinSense bisa dipakai gratis untuk kebutuhan dasar. Untuk fitur lanjutan tersedia paket berbayar yang bisa kamu pilih sesuai kebutuhan toko.' },
+  { question: 'Bagaimana kalau saya punya lebih dari satu toko?', answer: 'Tenang, kamu bisa menambahkan toko lain dan memantau semuanya dari satu akun FinSense yang sama.' },
 ];
 
 const scrollToSection = (sectionId) => {
