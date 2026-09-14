@@ -1,5 +1,108 @@
 <template>
-  <div class="min-h-screen bg-white font-poppins text-slate-900">
+  <div v-if="loading" class="min-h-screen bg-white font-poppins">
+    <div class="h-20 border-b border-slate-200 px-5 sm:px-8">
+      <div class="mx-auto flex h-full max-w-7xl items-center justify-between">
+        <div class="h-8 w-32 animate-pulse rounded bg-slate-200" />
+        <div class="hidden gap-8 md:flex">
+          <div class="h-4 w-14 animate-pulse rounded bg-slate-200" />
+          <div class="h-4 w-20 animate-pulse rounded bg-slate-200" />
+          <div class="h-4 w-12 animate-pulse rounded bg-slate-200" />
+        </div>
+        <div class="h-10 w-36 animate-pulse rounded-lg bg-slate-200" />
+      </div>
+    </div>
+    <div class="px-5 py-16 sm:px-8 md:py-24">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+        <div class="space-y-4">
+          <div class="h-10 w-full max-w-md animate-pulse rounded bg-slate-200" />
+          <div class="h-10 w-3/4 animate-pulse rounded bg-slate-200" />
+          <div class="h-4 w-full max-w-lg animate-pulse rounded bg-slate-200" />
+          <div class="h-4 w-2/3 max-w-lg animate-pulse rounded bg-slate-200" />
+          <div class="h-12 w-44 animate-pulse rounded-lg bg-slate-200" />
+        </div>
+        <div class="aspect-video w-full animate-pulse rounded-2xl bg-slate-200" />
+      </div>
+    </div>
+    <div class="bg-sky-950 px-5 py-20 sm:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="mx-auto h-8 w-full max-w-md animate-pulse rounded bg-white/10" />
+        <div class="mx-auto mt-4 h-4 w-full max-w-sm animate-pulse rounded bg-white/10" />
+        <div class="mt-14 grid gap-6 sm:grid-cols-3">
+          <div class="h-48 animate-pulse rounded-2xl bg-white/10" />
+          <div class="h-48 animate-pulse rounded-2xl bg-white/10" />
+          <div class="h-48 animate-pulse rounded-2xl bg-white/10" />
+        </div>
+      </div>
+    </div>
+    <div class="bg-slate-50 px-5 py-20 sm:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="mx-auto h-8 w-full max-w-md animate-pulse rounded bg-slate-200" />
+        <div class="mt-14 grid gap-6 lg:grid-cols-[1.1fr_1fr]">
+          <div class="h-80 animate-pulse rounded-2xl bg-slate-200" />
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="h-36 animate-pulse rounded-2xl bg-slate-200" />
+            <div class="h-36 animate-pulse rounded-2xl bg-slate-200" />
+            <div class="h-36 animate-pulse rounded-2xl bg-slate-200" />
+            <div class="h-36 animate-pulse rounded-2xl bg-slate-200" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-sky-950 px-5 py-20 sm:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="mx-auto h-8 w-full max-w-sm animate-pulse rounded bg-white/10" />
+        <div class="mt-14 grid gap-8 sm:grid-cols-3">
+          <div class="h-28 animate-pulse rounded-2xl bg-white/10" />
+          <div class="h-28 animate-pulse rounded-2xl bg-white/10" />
+          <div class="h-28 animate-pulse rounded-2xl bg-white/10" />
+        </div>
+      </div>
+    </div>
+    <div class="bg-slate-50 px-5 py-20 sm:px-8">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
+        <div class="space-y-3">
+          <div class="h-6 w-40 animate-pulse rounded bg-slate-200" />
+          <div class="h-8 w-64 animate-pulse rounded bg-slate-200" />
+          <div class="h-4 w-full animate-pulse rounded bg-slate-200" />
+        </div>
+        <div class="aspect-video w-full animate-pulse rounded-2xl bg-slate-200" />
+      </div>
+    </div>
+    <div class="bg-white px-5 py-20 sm:px-8">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
+        <div class="aspect-video w-full animate-pulse rounded-2xl bg-slate-200" />
+        <div class="space-y-3">
+          <div class="h-6 w-40 animate-pulse rounded bg-slate-200" />
+          <div class="h-8 w-64 animate-pulse rounded bg-slate-200" />
+          <div class="h-4 w-full animate-pulse rounded bg-slate-200" />
+        </div>
+      </div>
+    </div>
+    <div class="bg-slate-50 px-5 py-20 sm:px-8">
+      <div class="mx-auto max-w-3xl">
+        <div class="mx-auto h-8 w-full max-w-sm animate-pulse rounded bg-slate-200" />
+        <div class="mt-10 space-y-3">
+          <div v-for="i in 5" :key="i" class="h-14 animate-pulse rounded-2xl bg-slate-200" />
+        </div>
+      </div>
+    </div>
+    <div class="bg-slate-900 px-5 py-20 sm:px-8">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <div class="mx-auto h-8 w-full max-w-sm animate-pulse rounded bg-white/10" />
+        <div class="mx-auto h-4 w-full max-w-md animate-pulse rounded bg-white/10" />
+        <div class="mx-auto h-12 w-52 animate-pulse rounded-lg bg-white/10" />
+      </div>
+    </div>
+    <div class="bg-slate-950 px-5 py-14 sm:px-8">
+      <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-4">
+        <div class="h-24 animate-pulse rounded bg-white/10" />
+        <div class="h-24 animate-pulse rounded bg-white/10" />
+        <div class="h-24 animate-pulse rounded bg-white/10" />
+        <div class="h-24 animate-pulse rounded bg-white/10" />
+      </div>
+    </div>
+  </div>
+  <div v-else class="min-h-screen bg-white font-poppins text-slate-900">
     <nav class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-xl">
       <div class="mx-auto max-w-7xl px-5 sm:px-8">
         <div class="flex h-20 items-center justify-between">
@@ -65,19 +168,19 @@
       </section>
 
       <!-- Problems -->
-      <section id="masalah" class="bg-white px-5 py-20 sm:px-8 md:py-24">
-        <div class="mx-auto max-w-7xl">
+      <section id="masalah" class="relative overflow-hidden bg-sky-950 bg-[radial-gradient(circle_at_15%_15%,rgba(249,115,22,0.12),transparent_40%)] px-5 py-20 sm:px-8 md:py-24">
+        <div class="relative mx-auto max-w-7xl">
           <div class="mx-auto max-w-2xl text-center">
-            <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Masalah yang tiap hari dialami pemilik warung</h2>
-            <p class="mt-4 text-base leading-7 text-slate-600">Banyak hal kecil di warung yang bikin pusing dari hari ke hari.</p>
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Masalah yang tiap hari dialami pemilik warung</h2>
+            <p class="mt-4 text-base leading-7 text-slate-300">Banyak hal kecil di warung yang bikin pusing dari hari ke hari.</p>
           </div>
           <div class="mt-14 grid gap-6 sm:grid-cols-3">
-            <div v-for="problem in problems" :key="problem.title" class="rounded-2xl border border-slate-200 bg-slate-50 p-7 transition hover:-translate-y-1 hover:shadow-lg">
-              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-orange-600">
+            <div v-for="problem in problems" :key="problem.title" class="rounded-2xl border border-white/10 bg-white/5 p-7 transition hover:-translate-y-1 hover:border-orange-500/40 hover:bg-white/10">
+              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/15 text-orange-400">
                 <component :is="problem.icon" class="h-6 w-6" />
               </div>
-              <h3 class="text-lg font-bold text-slate-900">{{ problem.title }}</h3>
-              <p class="mt-3 text-sm leading-6 text-slate-600">{{ problem.text }}</p>
+              <h3 class="text-lg font-bold text-white">{{ problem.title }}</h3>
+              <p class="mt-3 text-sm leading-6 text-slate-300">{{ problem.text }}</p>
             </div>
           </div>
         </div>
@@ -116,17 +219,17 @@
       </section>
 
       <!-- Steps -->
-      <section id="cara-kerja" class="bg-white px-5 py-20 sm:px-8 md:py-24">
-        <div class="mx-auto max-w-7xl">
+      <section id="cara-kerja" class="relative overflow-hidden bg-sky-950 bg-[radial-gradient(circle_at_15%_15%,rgba(249,115,22,0.12),transparent_40%)] px-5 py-20 sm:px-8 md:py-24">
+        <div class="relative mx-auto max-w-7xl">
           <div class="mx-auto max-w-2xl text-center">
-            <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Mulai dalam 5 menit</h2>
-            <p class="mt-4 text-base leading-7 text-slate-600">Tanpa ribet, tanpa instalasi hardware, atau kursus rumit.</p>
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Mulai dalam 5 menit</h2>
+            <p class="mt-4 text-base leading-7 text-slate-300">Tanpa ribet, tanpa instalasi hardware, atau kursus rumit.</p>
           </div>
           <div class="mt-14 grid gap-8 text-left sm:grid-cols-3">
             <div v-for="step in steps" :key="step.title">
               <div class="flex h-12 w-12 items-center justify-center rounded-full bg-orange-500 text-lg font-bold text-white">{{ step.number }}</div>
-              <h3 class="mt-5 text-lg font-bold text-slate-900">{{ step.title }}</h3>
-              <p class="mt-2 text-sm leading-6 text-slate-600">{{ step.text }}</p>
+              <h3 class="mt-5 text-lg font-bold text-white">{{ step.title }}</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-300">{{ step.text }}</p>
             </div>
           </div>
         </div>
@@ -175,7 +278,11 @@
                 {{ faq.question }}
                 <ChevronDown class="h-4 w-4 shrink-0 text-slate-400 transition-transform" :class="{ 'rotate-180': openFaq === i }" />
               </button>
-              <p v-if="openFaq === i" class="px-6 pb-5 text-sm leading-6 text-slate-600">{{ faq.answer }}</p>
+              <div class="grid overflow-hidden transition-[grid-template-rows] duration-300 ease-in-out" :class="openFaq === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
+                <div class="overflow-hidden">
+                  <p class="px-6 pb-5 text-sm leading-6 text-slate-600">{{ faq.answer }}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -187,7 +294,6 @@
           <h2 class="text-3xl font-bold text-white sm:text-4xl">Rapikan pembukuan warung kamu mulai hari ini.</h2>
           <p class="mt-4 text-base leading-7 text-slate-300">Bergabunglah dengan ribuan pemilik warung pintar di seluruh Indonesia yang hemat waktu dan untung lebih banyak.</p>
           <button @click="router.push('/register')" class="mt-8 inline-block rounded-lg bg-orange-500 px-8 py-3.5 font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-orange-600 cursor-pointer">Mulai Gratis Sekarang</button>
-          <p class="mt-4 text-xs text-slate-400">Daftar dalam 1 menit &bull; Tidak butuh kartu kredit</p>
         </div>
       </section>
     </main>
@@ -240,7 +346,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { NotebookPen, Coins, PackageX, Wallet, Boxes, CreditCard, Lightbulb, Mic, ChevronDown } from 'lucide-vue-next';
 import hero from '@images/herosection.png';
@@ -250,6 +356,13 @@ import aicashier from '@images/aicashier.png';
 
 const router = useRouter();
 const openFaq = ref(null);
+const loading = ref(true);
+
+onMounted(() => {
+  setTimeout(() => {
+    loading.value = false;
+  }, 900);
+});
 
 const problems = [
   { icon: NotebookPen, title: 'Lupa catat penjualan', text: 'Transaksi kadang dicatat di buku dan sering hilang atau lupa dicatat sehingga rekap jadi tidak akurat.' },
