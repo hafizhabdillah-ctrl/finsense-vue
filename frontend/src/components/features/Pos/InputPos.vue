@@ -6,21 +6,21 @@
         type="text"
         placeholder="Cari produk..."
         v-model="query"
-        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+        class="w-full p-3 border border-gray-300 rounded-lg"
       />
-      <Search class="absolute right-3 top-4 text-gray-400" :size="18" />
+      <Search class="absolute right-3 top-4 text-gray-400" :size="16" />
       <ul
         v-if="filtered.length > 0"
-        class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-60 overflow-auto shadow-lg"
+        class="absolute z-10 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-60 overflow-auto"
       >
         <li
           v-for="p in filtered"
           :key="p.id"
           @click="handleAddProduct(p)"
-          class="p-2 hover:bg-gray-100 cursor-pointer flex justify-between items-center"
+          class="p-2 hover:bg-gray-100 cursor-pointer flex justify-between"
         >
-          <span class="font-medium">{{ p.name }}</span>
-          <span class="text-sm text-gray-600">Rp {{ p.price?.toLocaleString() }}</span>
+          <span>{{ p.name }}</span>
+          <span>Rp {{ p.price?.toLocaleString() }}</span>
         </li>
       </ul>
     </div>
@@ -30,11 +30,11 @@
       @click="isListening ? stopListening() : startListening()"
       :disabled="isProcessing"
       :class="[
-        'flex p-5 border rounded-xl transition-all cursor-pointer',
+        'flex p-5 border rounded-xl transition-all',
         isProcessing
           ? 'bg-gray-400 text-white cursor-not-allowed'
           : isListening
-          ? 'bg-white text-red-500 border-red-500 animate-pulse'
+          ? 'bg-white text-red-500 border-red-500'
           : 'bg-sky-950 text-white hover:bg-white hover:text-sky-950'
       ]"
     >
@@ -42,7 +42,7 @@
       <Mic v-else :size="28" />
     </button>
 
-    <p class="text-sm text-gray-500">
+    <p class="text-sm text-gray-400">
       {{
         isProcessing
           ? 'Memproses suara...'

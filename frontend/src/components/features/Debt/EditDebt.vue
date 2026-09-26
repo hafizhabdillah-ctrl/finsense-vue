@@ -1,6 +1,6 @@
 <template>
-  <div v-if="loading" class="p-6 text-gray-500">Memuat data...</div>
-  <form v-else @submit.prevent="onSubmitHandler" class="p-4 max-w-2xl">
+  <div v-if="loading" class="p-6">Memuat data...</div>
+  <form v-else @submit.prevent="onSubmitHandler">
     <h1 class="text-2xl font-bold text-gray-800">Edit Hutang</h1>
     <p class="mb-2 mt-2 text-sm text-gray-500">ID Hutang: {{ id }}</p>
     <div class="grid grid-cols-2 gap-2 border-t pt-2">
@@ -8,7 +8,7 @@
         Nama Orang:
       </p>
       <input
-        class="p-2 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-sky-950"
+        class="p-2 border border-gray-400 rounded"
         v-model="customer_name"
         required
       />
@@ -17,7 +17,7 @@
       </p>
       <input
         type="number"
-        class="p-2 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-sky-950"
+        class="p-2 border border-gray-400 rounded"
         v-model="total_debt"
         required
       />
@@ -26,13 +26,13 @@
       </p>
       <input
         type="date"
-        class="p-2 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-sky-950"
+        class="p-2 border border-gray-400 rounded"
         v-model="due_date"
         required
       />
       <p class="flex items-center font-semibold text-gray-600">Status:</p>
       <select
-        class="p-2 border border-gray-400 rounded bg-white focus:outline-none focus:ring-2 focus:ring-sky-950"
+        class="p-2 border border-gray-400 rounded bg-white"
         v-model="status"
       >
         <option value="pending">Belum Lunas</option>
@@ -43,7 +43,7 @@
     <button
       type="submit"
       :disabled="submitting"
-      class="flex items-center gap-2 mt-4 cursor-pointer bg-sky-950 p-2 px-4 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all disabled:opacity-50"
+      class="flex items-center gap-2 mt-4 cursor-pointer bg-sky-950 p-2 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all"
     >
       {{ submitting ? 'Menyimpan...' : 'Konfirmasi' }}
     </button>

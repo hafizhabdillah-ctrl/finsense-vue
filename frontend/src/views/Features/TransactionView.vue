@@ -17,7 +17,7 @@
     <!-- Filter Tanggal -->
     <div class="flex flex-wrap items-center gap-4 mt-4 px-2">
       <div class="flex items-center gap-2">
-        <Calendar class="text-gray-500" :size="18" />
+        <Calendar class="text-gray-500" :size="16" />
         <span class="font-medium text-gray-700">Filter Tanggal:</span>
       </div>
       <div class="flex flex-wrap gap-2 items-center">

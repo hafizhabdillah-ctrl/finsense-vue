@@ -18,6 +18,8 @@
       </button>
     </div>
 
+    <!-- Form container -->
+    <div class="py-2 px-2">
     <!-- Produk -->
     <form v-if="type === 'product'" class="max-w-2xl" @submit.prevent="onSubmitProduct">
       <div class="px-2 mt-4 relative flex flex-col gap-2">
@@ -79,7 +81,7 @@
       <button
         type="submit"
         :disabled="submittingProduct"
-        class="flex items-center py-2 px-4 mx-2 mt-4 gap-2 cursor-pointer bg-sky-950 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all disabled:opacity-50"
+        class="flex items-center py-2 px-4 mx-2 mt-4 gap-2 cursor-pointer bg-sky-950 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {{ submittingProduct ? 'Menyimpan...' : 'Tambah Barang' }}
       </button>
@@ -92,7 +94,7 @@
         <input
           type="date"
           v-model="transactionForm.date"
-          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+          class="w-full p-2 border-2 border-gray-300 rounded-lg"
           required
         />
       </div>
@@ -100,7 +102,7 @@
         <span class="font-bold">Kategori:</span>
         <select
           v-model="transactionForm.category_id"
-          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+          class="w-full p-2 border-2 border-gray-300 rounded-lg"
           required
         >
           <option value="">Pilih kategori</option>
@@ -115,7 +117,7 @@
           type="text"
           placeholder="Masukan keterangan..."
           v-model="transactionForm.description"
-          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+          class="w-full p-2 border-2 border-gray-300 rounded-lg"
         />
       </div>
       <div class="px-2 mt-4 relative flex flex-col gap-2">
@@ -124,7 +126,7 @@
           type="number"
           placeholder="Masukan nominal..."
           v-model="transactionForm.amount"
-          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+          class="w-full p-2 border-2 border-gray-300 rounded-lg"
           required
         />
       </div>
@@ -132,7 +134,7 @@
         <span class="font-bold">Tipe:</span>
         <select
           v-model="transactionForm.type"
-          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+          class="w-full p-2 border-2 border-gray-300 rounded-lg"
         >
           <option value="income">Masuk</option>
           <option value="expense">Keluar</option>
@@ -141,7 +143,7 @@
       <button
         type="submit"
         :disabled="submittingTransaction"
-        class="flex items-center py-2 px-4 mx-2 mt-4 gap-2 cursor-pointer bg-sky-950 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all disabled:opacity-50"
+        class="flex items-center py-2 px-4 mx-2 mt-4 gap-2 cursor-pointer bg-sky-950 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {{ submittingTransaction ? 'Menyimpan...' : 'Konfirmasi' }}
       </button>
@@ -153,7 +155,7 @@
         <span class="font-bold">Produk:</span>
         <select
           v-model="posForm.product_id"
-          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+          class="w-full p-2 border-2 border-gray-300 rounded-lg"
           required
         >
           <option value="">Pilih Barang dari Stok</option>
@@ -167,7 +169,7 @@
         <input
           type="number"
           placeholder="Masukan jumlah barang..."
-          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+          class="w-full p-2 border-2 border-gray-300 rounded-lg"
           v-model="posForm.qty"
           min="1"
           required
@@ -176,7 +178,7 @@
       <button
         type="submit"
         :disabled="submittingPos"
-        class="flex items-center py-2 px-4 mx-2 mt-4 gap-2 cursor-pointer bg-sky-950 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all disabled:opacity-50"
+        class="flex items-center py-2 px-4 mx-2 mt-4 gap-2 cursor-pointer bg-sky-950 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {{ submittingPos ? 'Memproses...' : 'Konfirmasi' }}
       </button>
@@ -189,7 +191,7 @@
         <input
           type="text"
           placeholder="Masukan nama orang..."
-          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+          class="w-full p-2 border-2 border-gray-300 rounded-lg"
           v-model="debtForm.customer_name"
           required
         />
@@ -199,7 +201,7 @@
         <input
           type="number"
           placeholder="Masukan total hutang..."
-          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+          class="w-full p-2 border-2 border-gray-300 rounded-lg"
           v-model="debtForm.total_debt"
           required
         />
@@ -208,7 +210,7 @@
         <span class="font-bold">Jatuh Tempo:</span>
         <input
           type="date"
-          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+          class="w-full p-2 border-2 border-gray-300 rounded-lg"
           v-model="debtForm.due_date"
           required
         />
@@ -216,7 +218,7 @@
       <button
         type="submit"
         :disabled="submittingDebt"
-        class="flex items-center py-2 px-4 mx-2 mt-4 gap-2 cursor-pointer bg-sky-950 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all disabled:opacity-50"
+        class="flex items-center py-2 px-4 mx-2 mt-4 gap-2 cursor-pointer bg-sky-950 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {{ submittingDebt ? 'Menyimpan...' : 'Konfirmasi' }}
       </button>
@@ -227,7 +229,7 @@
       <div class="px-2 mt-4 relative flex flex-col gap-2">
         <span class="font-bold">Produk:</span>
         <select
-          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+          class="w-full p-2 border-2 border-gray-300 rounded-lg"
           v-model="logForm.product_id"
           required
         >
@@ -240,7 +242,7 @@
       <div class="px-2 mt-4 relative flex flex-col gap-2">
         <span class="font-bold">Tipe:</span>
         <select
-          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+          class="w-full p-2 border-2 border-gray-300 rounded-lg"
           v-model="logForm.type"
         >
           <option value="in">Stok Masuk</option>
@@ -253,7 +255,7 @@
         <input
           type="number"
           placeholder="Masukan jumlah barang..."
-          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+          class="w-full p-2 border-2 border-gray-300 rounded-lg"
           v-model="logForm.quantity"
           required
         />
@@ -263,14 +265,14 @@
         <input
           type="text"
           placeholder="Masukan catatan barang..."
-          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+          class="w-full p-2 border-2 border-gray-300 rounded-lg"
           v-model="logForm.note"
         />
       </div>
       <div class="px-2 mt-4 relative flex flex-col gap-2">
         <span class="font-bold">Oleh:</span>
         <select
-          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+          class="w-full p-2 border-2 border-gray-300 rounded-lg"
           v-model="logForm.operator"
         >
           <option>Admin</option>
@@ -281,7 +283,7 @@
       <div class="px-2 mt-4 relative flex flex-col gap-2">
         <span class="font-bold">Status:</span>
         <select
-          class="w-full p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
+          class="w-full p-2 border-2 border-gray-300 rounded-lg"
           v-model="logForm.status"
         >
           <option value="completed">Selesai</option>
@@ -291,11 +293,12 @@
       <button
         type="submit"
         :disabled="submittingLog"
-        class="flex items-center py-2 px-4 mx-2 mt-4 gap-2 cursor-pointer bg-sky-950 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all disabled:opacity-50"
+        class="flex items-center py-2 px-4 mx-2 mt-4 gap-2 cursor-pointer bg-sky-950 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {{ submittingLog ? 'Menyimpan...' : 'Konfirmasi' }}
       </button>
     </form>
+    </div>
   </div>
 </template>
 

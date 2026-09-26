@@ -23,7 +23,7 @@
         v-model="searchTerm"
         class="w-full p-2 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-950"
       />
-      <Search class="absolute left-3 top-3 text-gray-400" :size="18" />
+      <Search class="absolute left-3 top-3 text-gray-400" :size="16" />
     </div>
 
     <div class="overflow-x-auto mt-2">

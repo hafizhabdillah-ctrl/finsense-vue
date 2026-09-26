@@ -37,9 +37,9 @@ const props = defineProps({
 const sizeClass = computed(() => {
   const sizes = {
     sm: 'w-6 h-6',
-    md: 'w-10 h-10',
-    lg: 'w-14 h-14',
-    xl: 'w-20 h-20'
+    md: 'w-9 h-9',
+    lg: 'w-15 h-15',
+    xl: 'w-24 h-24'
   };
   return sizes[props.size] || sizes.md;
 });

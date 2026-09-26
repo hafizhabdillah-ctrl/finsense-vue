@@ -14,7 +14,7 @@
           @click="toggleChat"
           class="hover:bg-sky-800 p-1 rounded-full transition cursor-pointer"
         >
-          <X :size="20" />
+          <X :size="22" />
         </button>
       </div>
 
@@ -65,7 +65,7 @@
           :disabled="isLoading"
           class="bg-sky-950 text-white p-2 rounded-full hover:bg-sky-800 transition disabled:opacity-50 cursor-pointer"
         >
-          <Send :size="18" />
+          <Send :size="20" />
         </button>
       </div>
     </div>
@@ -81,7 +81,7 @@
       ]"
     >
       <X v-if="isOpen" :size="24" />
-      <MessageSquare v-else :size="24" />
+      <MessageSquareMore v-else :size="24" />
     </button>
   </div>
 </template>
@@ -89,7 +89,7 @@
 <script setup>
 import { ref, watch, nextTick } from 'vue';
 import api from '@/services/api';
-import { X, Send, MessageSquare } from 'lucide-vue-next';
+import { X, Send, MessageSquareMore } from 'lucide-vue-next';
 
 const isOpen = ref(false);
 const messages = ref([]);

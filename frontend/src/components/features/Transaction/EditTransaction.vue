@@ -1,6 +1,6 @@
 <template>
-  <div v-if="loading" class="p-6 text-gray-500">Memuat data...</div>
-  <form v-else @submit.prevent="onSubmitHandler" class="p-4 max-w-2xl">
+  <div v-if="loading" class="p-6">Memuat data...</div>
+  <form v-else @submit.prevent="onSubmitHandler">
     <h1 class="text-2xl font-bold text-gray-800">Edit Transaksi</h1>
     <p class="mb-2 mt-2 text-sm text-gray-500">ID Transaksi: {{ id }}</p>
 
@@ -62,7 +62,7 @@
     <button
       type="submit"
       :disabled="submitting"
-      class="flex items-center gap-2 mt-4 cursor-pointer bg-sky-950 p-2 px-4 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all disabled:opacity-50"
+      class="flex items-center gap-2 mt-4 cursor-pointer bg-sky-950 p-2 text-white font-semibold border rounded-lg hover:bg-white hover:text-sky-950 transition-all"
     >
       {{ submitting ? 'Menyimpan...' : 'Konfirmasi' }}
     </button>

@@ -25,13 +25,13 @@
                 class="w-16 p-1 border rounded"
               />
             </div>
-            <div class="flex gap-2 items-center">
+            <div class="flex gap-2">
               <span class="font-bold text-sky-950">
                 Rp {{ (item.price * item.qty).toLocaleString() }}
               </span>
               <button
                 @click="onDeleteHandler(item)"
-                class="text-red-800 font-bold cursor-pointer hover:text-red-600 px-1"
+                class="text-red-800 cursor-pointer"
               >
                 X
               </button>
@@ -49,7 +49,7 @@
       </div>
       <button
         @click="onCheckout"
-        class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-lg mt-2 cursor-pointer transition-colors"
+        class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-lg mt-2"
       >
         Konfirmasi
       </button>

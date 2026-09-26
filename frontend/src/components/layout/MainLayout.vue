@@ -1,6 +1,6 @@
 <template>
   <Loading v-if="authStore.loading" fullScreen text="Memuat dashboard..." />
-  <div v-else-if="authStore.user" class="flex h-screen w-full bg-gray-100 relative overflow-hidden">
+  <div v-else-if="authStore.user" class="flex h-screen w-full bg-gray-100 relative">
     <!-- Sidebar untuk desktop & mobile -->
     <div
       :class="[
@@ -14,7 +14,7 @@
     <!-- Overlay untuk mobile saat sidebar terbuka -->
     <div
       v-if="sidebarOpen"
-      class="fixed inset-0 bg-black/50 z-40 lg:hidden backdrop-blur-sm"
+      class="fixed inset-0 z-40 lg:hidden backdrop-blur-sm"
       @click="sidebarOpen = false"
     />
 

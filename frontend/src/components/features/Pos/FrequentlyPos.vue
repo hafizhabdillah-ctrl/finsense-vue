@@ -6,13 +6,13 @@
         v-for="product in products"
         :key="product.id"
         @click="handleAdd(product)"
-        class="p-4 border rounded-xl cursor-pointer hover:bg-gray-100 transition-colors shadow-sm"
+        class="p-4 border rounded-xl cursor-pointer hover:bg-gray-100"
       >
-        <div class="font-semibold text-gray-800">{{ product.name }}</div>
-        <div class="text-sm text-gray-500">
+        <div class="font-semibold">{{ product.name }}</div>
+        <div>
           Stok: {{ product.stock }} {{ product.unit || '' }}
         </div>
-        <div class="text-sky-950 font-bold mt-1">
+        <div>
           Rp {{ product.price?.toLocaleString() }}
         </div>
       </div>

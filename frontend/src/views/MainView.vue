@@ -242,7 +242,7 @@
             <span class="inline-block rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-orange-600">Kontrol Keuangan</span>
             <h3 class="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl">Lihat untung rugi hari ini</h3>
             <p class="mt-4 leading-7 text-slate-600">Pantau jumlah keuntungan, kerugian, dan grafik produk terlaris secara real-time dari HP atau laptop kamu kapan pun.</p>
-            <blockquote class="mt-6 border-l-4 border-orange-500 pl-4 text-sm italic text-slate-500">Sekarang saya bisa lihat untung rugi setiap hari lewat HP.</blockquote>
+            <blockquote class="mt-6 border-l-4 border-orange-500 pl-4 text-sm italic text-slate-500">"Sekarang saya bisa lihat untung rugi setiap hari lewat HP."</blockquote>
           </div>
           <div class="rounded-2xl border border-slate-200 bg-white p-2 shadow-xl">
             <img :src="dashboard" alt="Dasbor keuangan FinSense" class="w-full rounded-xl object-cover" />
@@ -260,7 +260,7 @@
             <span class="inline-block rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-orange-600">Tutup Hutang</span>
             <h3 class="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl">Tidak ada lagi hutang yang terlupa</h3>
             <p class="mt-4 leading-7 text-slate-600">Rekap hutang pelanggan tercatat rapi lengkap dengan tanggal jatuh tempo, supaya arus kas warungmu tetap terjaga.</p>
-            <blockquote class="mt-6 border-l-4 border-orange-500 pl-4 text-sm italic text-slate-500">Sekarang saya bisa ingatkan pelanggan otomatis sebelum jatuh tempo.</blockquote>
+            <blockquote class="mt-6 border-l-4 border-orange-500 pl-4 text-sm italic text-slate-500">"Sekarang saya bisa ingatkan pelanggan otomatis sebelum jatuh tempo."</blockquote>
           </div>
         </div>
       </section>
@@ -276,7 +276,7 @@
             <div v-for="(faq, i) in faqs" :key="faq.question">
               <button @click="openFaq = openFaq === i ? null : i" class="flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-sm font-semibold text-slate-900 cursor-pointer">
                 {{ faq.question }}
-                <ChevronDown class="h-4 w-4 shrink-0 text-slate-400 transition-transform" :class="{ 'rotate-180': openFaq === i }" />
+                <ChevronDown class="h-4 w-4 shrink-0 text-slate-400 transition-transform duration-300" :class="{ 'rotate-180': openFaq === i }" />
               </button>
               <div class="grid overflow-hidden transition-[grid-template-rows] duration-300 ease-in-out" :class="openFaq === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
                 <div class="overflow-hidden">

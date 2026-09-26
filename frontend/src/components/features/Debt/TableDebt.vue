@@ -10,7 +10,7 @@
       <thead class="bg-sky-950 text-white">
         <tr>
           <th class="px-4 py-3 text-center text-sm font-semibold">No</th>
-          <th class="px-4 py-3 text-center text-sm font-semibold">
+          <th class="px-4 py-3 text-left text-sm font-semibold">
             Nama Pelanggan
           </th>
           <th class="px-4 py-3 text-right text-sm font-semibold">
@@ -40,7 +40,7 @@
           <td class="px-4 py-3 text-center text-sm text-gray-700">
             {{ indexOfFirstItem + idx + 1 }}
           </td>
-          <td class="px-4 py-3 text-center text-sm font-medium text-gray-900">
+          <td class="px-4 py-3 text-left text-sm font-medium text-gray-900">
             {{ debt.customer_name }}
           </td>
           <td class="px-4 py-3 text-right text-sm text-gray-500 line-through">

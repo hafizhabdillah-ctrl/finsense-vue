@@ -15,7 +15,7 @@
       <div class="flex flex-col items-center">
         <!-- Logo dan Nama -->
         <div class="flex flex-row items-center mb-4">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 sm:h-12 sm:w-12 mx-2 object-contain">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 sm:h-12 sm:w-12 mx-2">
             <path d="M2 3h4.2L12 13l5.8-10H22L12 21 2 3Z" fill="#41B883"/>
             <path d="M6.2 3H9.5L12 7.2 14.5 3H17.8L12 13 6.2 3Z" fill="#35495E"/>
           </svg>
@@ -92,7 +92,7 @@
           <button
             type="submit"
             :disabled="loading"
-            class="w-full bg-sky-950 text-white font-bold rounded-lg py-3 disabled:opacity-50 hover:bg-sky-800 transition-colors cursor-pointer"
+            class="w-full bg-sky-950 text-white font-bold rounded-lg py-3 disabled:opacity-50 hover:bg-sky-800 transition-colors"
           >
             {{ loading ? 'Memproses...' : 'Reset Password' }}
           </button>

@@ -13,7 +13,7 @@
       <p class="font-semibold text-gray-600">Telah Dibayar:</p>
       <p>Rp {{ debt.paid_amount?.toLocaleString() }}</p>
       <p class="font-semibold text-gray-600">Sisa Hutang:</p>
-      <p :class="remainingDebt > 0 ? 'text-red-600 font-bold' : 'text-green-600 font-bold'">
+      <p :class="remainingDebt > 0 ? 'text-red-600 font-bold' : 'text-green-600'">
         Rp {{ remainingDebt.toLocaleString() }}
       </p>
       <p class="font-semibold text-gray-600">Jatuh Tempo:</p>
@@ -80,7 +80,7 @@
               <td class="px-4 py-2 text-sm">
                 {{ new Date(payment.paid_at).toLocaleDateString('id-ID') }}
               </td>
-              <td class="px-4 py-2 text-sm font-medium">
+              <td class="px-4 py-2 text-sm">
                 Rp {{ payment.amount?.toLocaleString() }}
               </td>
               <td class="px-4 py-2 text-sm">{{ payment.note || '-' }}</td>
@@ -105,7 +105,7 @@
             <input
               type="number"
               v-model="paymentAmount"
-              class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-sky-950"
+              class="w-full p-2 border border-gray-300 rounded"
               placeholder="Masukkan jumlah"
               required
               min="1"
@@ -118,7 +118,7 @@
             </label>
             <textarea
               v-model="paymentNote"
-              class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-sky-950"
+              class="w-full p-2 border border-gray-300 rounded"
               rows="2"
               placeholder="Contoh: Pembayaran tunai"
             ></textarea>
@@ -127,14 +127,14 @@
             <button
               type="button"
               @click="showPaymentModal = false"
-              class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 cursor-pointer"
+              class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
             >
               Batal
             </button>
             <button
               type="submit"
               :disabled="submitting"
-              class="px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800 disabled:opacity-50 cursor-pointer"
+              class="px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800 disabled:opacity-50"
             >
               {{ submitting ? 'Menyimpan...' : 'Bayar' }}
             </button>

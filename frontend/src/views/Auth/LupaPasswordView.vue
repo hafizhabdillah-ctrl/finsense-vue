@@ -2,8 +2,8 @@
   <div class="min-h-screen flex items-center justify-center bg-gray-200">
     <div class="bg-white p-10 rounded-2xl shadow-xl w-full max-w-md">
       <div class="flex flex-col items-center">
-        <div class="flex flex-row items-center">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-2 mx-2 object-contain">
+        <div class="flex flex-row">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-2 mx-2">
             <path d="M2 3h4.2L12 13l5.8-10H22L12 21 2 3Z" fill="#41B883"/>
             <path d="M6.2 3H9.5L12 7.2 14.5 3H17.8L12 13 6.2 3Z" fill="#35495E"/>
           </svg>
@@ -11,7 +11,7 @@
             Fin<span class="text-orange-400">Sense</span>
           </h1>
         </div>
-        <p class="text-gray-500 text-sm mb-4 text-center">
+        <p class="text-gray-500 text-sm mb-4">
           Masukkan email Anda, kami akan kirimkan link reset password.
         </p>
         <form @submit.prevent="handleSubmit" class="w-full">
@@ -27,13 +27,13 @@
           <button
             type="submit"
             :disabled="loading"
-            class="w-full bg-sky-950 text-white font-bold rounded-lg py-2 disabled:opacity-50 cursor-pointer hover:bg-sky-900 transition-colors"
+            class="w-full bg-sky-950 text-white font-bold rounded-lg py-2 disabled:opacity-50 cursor-pointer"
           >
             {{ loading ? 'Mengirim...' : 'Kirim Link Reset' }}
           </button>
         </form>
         <div class="mt-4 text-center">
-          <RouterLink to="/login" class="text-orange-500 font-bold hover:text-orange-600">
+          <RouterLink to="/login" class="text-orange-500 font-bold">
             Kembali ke Login
           </RouterLink>
         </div>

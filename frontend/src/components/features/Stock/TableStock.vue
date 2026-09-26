@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loading" class="p-4 text-gray-500">Memuat data stok...</div>
+  <div v-if="loading" class="p-4">Memuat data stok...</div>
   <div v-else class="overflow-x-auto">
     <div class="min-w-[800px]">
       <div class="bg-sky-950 p-2 flex w-full mt-4 text-white font-semibold">
@@ -23,7 +23,7 @@
             <div class="flex-1 text-center text-gray-800 text-sm">
               {{ indexOfFirstItem + idx + 1 }}
             </div>
-            <div class="flex-4 text-center text-gray-800 text-sm font-medium">
+            <div class="flex-4 text-center text-gray-800 text-sm">
               {{ product.name }}
             </div>
             <div class="flex-4 text-center text-gray-800 text-sm">
@@ -55,7 +55,7 @@
               :class="[
                 'px-3 py-1 text-sm border rounded-md font-medium',
                 currentPage === 1
-                  ? 'text-gray-300 border-gray-200 cursor-not-allowed'
+                  ? 'text-gray-300 border-gray-200'
                   : 'cursor-pointer text-gray-600 border-gray-300 hover:bg-white'
               ]"
             >
@@ -67,7 +67,7 @@
               :class="[
                 'px-3 py-1 text-sm border rounded-md font-medium',
                 indexOfLastItem >= totalItems
-                  ? 'text-gray-300 border-gray-200 cursor-not-allowed'
+                  ? 'text-gray-300 border-gray-200'
                   : 'cursor-pointer text-gray-600 border-gray-300 hover:bg-white'
               ]"
             >
