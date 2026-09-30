@@ -31,7 +31,11 @@ onMounted(async () => {
   try {
     const productsRes = await api.get('/products');
     const products = productsRes.data || [];
-    lowStockList.value = products.filter((p) => p.stock <= p.min_stock);
+    // 15 produk paling menipis, stok terkecil di atas
+    lowStockList.value = products
+      .filter((p) => p.stock <= p.min_stock)
+      .sort((a, b) => a.stock - b.stock || a.name.localeCompare(b.name))
+      .slice(0, 15);
   } catch (err) {
     console.error('Gagal mengambil data produk', err);
     lowStockList.value = [];
